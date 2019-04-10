@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7CA1D4C22242D3F400A86236 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA1D4C12242D3F400A86236 /* AppDelegate.swift */; };
-		7CA1D4C42242D3F400A86236 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA1D4C32242D3F400A86236 /* ViewController.swift */; };
+		7CA1D4C42242D3F400A86236 /* MainPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA1D4C32242D3F400A86236 /* MainPageViewController.swift */; };
 		7CA1D4C72242D3F400A86236 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CA1D4C52242D3F400A86236 /* Main.storyboard */; };
 		7CA1D4C92242D3F500A86236 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7CA1D4C82242D3F500A86236 /* Assets.xcassets */; };
 		7CA1D4CC2242D3F500A86236 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CA1D4CA2242D3F500A86236 /* LaunchScreen.storyboard */; };
@@ -17,7 +17,7 @@
 /* Begin PBXFileReference section */
 		7CA1D4BE2242D3F400A86236 /* Food Finder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Food Finder.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CA1D4C12242D3F400A86236 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		7CA1D4C32242D3F400A86236 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		7CA1D4C32242D3F400A86236 /* MainPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageViewController.swift; sourceTree = "<group>"; };
 		7CA1D4C62242D3F400A86236 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7CA1D4C82242D3F500A86236 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7CA1D4CB2242D3F500A86236 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -38,7 +38,7 @@
 		7CA1D4B52242D3F400A86236 = {
 			isa = PBXGroup;
 			children = (
-				7CA1D4C02242D3F400A86236 /* Food Finder */,
+				7CA1D4C02242D3F400A86236 /* FoodFinder */,
 				7CA1D4BF2242D3F400A86236 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -51,17 +51,25 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		7CA1D4C02242D3F400A86236 /* Food Finder */ = {
+		7CA1D4C02242D3F400A86236 /* FoodFinder */ = {
 			isa = PBXGroup;
 			children = (
+				A2F098372258795300AB000E /* Model */,
 				7CA1D4C12242D3F400A86236 /* AppDelegate.swift */,
-				7CA1D4C32242D3F400A86236 /* ViewController.swift */,
+				7CA1D4C32242D3F400A86236 /* MainPageViewController.swift */,
 				7CA1D4C52242D3F400A86236 /* Main.storyboard */,
 				7CA1D4C82242D3F500A86236 /* Assets.xcassets */,
 				7CA1D4CA2242D3F500A86236 /* LaunchScreen.storyboard */,
 				7CA1D4CD2242D3F600A86236 /* Info.plist */,
 			);
-			path = "Food Finder";
+			path = FoodFinder;
+			sourceTree = "<group>";
+		};
+		A2F098372258795300AB000E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -99,7 +107,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 7CA1D4B92242D3F400A86236 /* Build configuration list for PBXProject "Food Finder" */;
+			buildConfigurationList = 7CA1D4B92242D3F400A86236 /* Build configuration list for PBXProject "FoodFinder" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -135,7 +143,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7CA1D4C42242D3F400A86236 /* ViewController.swift in Sources */,
+				7CA1D4C42242D3F400A86236 /* MainPageViewController.swift in Sources */,
 				7CA1D4C22242D3F400A86236 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -315,7 +323,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		7CA1D4B92242D3F400A86236 /* Build configuration list for PBXProject "Food Finder" */ = {
+		7CA1D4B92242D3F400A86236 /* Build configuration list for PBXProject "FoodFinder" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7CA1D4CE2242D3F600A86236 /* Debug */,
