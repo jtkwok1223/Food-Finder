@@ -61,7 +61,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="ovJ-GJ-Qvt"/>
                     <connections>
-                        <outlet property="mapView" destination="9kO-yj-WQQ" id="vnn-ao-fl3"/>
+                        <outlet property="mapView" destination="9kO-yj-WQQ" id="CVl-0N-Cha"/>
                         <outlet property="searchDisplayController" destination="wU5-Sb-X5l" id="wd9-bi-mym"/>
                         <segue destination="poR-l7-i9x" kind="show" id="feF-gd-uZ6"/>
                         <segue destination="gxy-mA-uhX" kind="show" id="RIt-5h-tk3"/>

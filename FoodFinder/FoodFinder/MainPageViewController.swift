@@ -10,9 +10,9 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class ViewController: UIViewController, CLLocationManagerDelegate {
+class MainPageViewController: UIViewController, CLLocationManagerDelegate {
 
-    @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet var mapView: MKMapView!
     
     // tracks location
     var locationManager = CLLocationManager()
