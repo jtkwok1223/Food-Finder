@@ -1,2 +1,18 @@
+.idea
 .DS_Store
-*xcuserdata
+*.swp
+*~.nib
+
+build/
+adhoc/
+
+.xcodeproj/ !*.xcodeproj/project.pbxproj
+
+*.mode1v3
+*.mode2v3
+
+build/
+
+xcuserdata
+
+Pods/
