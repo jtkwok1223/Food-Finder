@@ -12,14 +12,11 @@
 import Foundation
 import UIKit
 
-var placeData: [Int: Place] = [:]
 var entryID = 0
 
 //use this to add to firebase
 func addNewPlace(_ place: Place){
-    placeData[entryID] = place
-    
-    db.collection(String(entryID)).document(place.name).setData([
+    db.collection(String(entryID)).document(place.name!).setData([
         "name" : place.name,
         "locationAddress" : place.locationAddress,
         "storeTimes" : place.storeTimes,
