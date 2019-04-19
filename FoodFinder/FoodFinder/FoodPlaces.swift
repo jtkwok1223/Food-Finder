@@ -6,19 +6,24 @@
 //  Copyright © 2019 iOSDecal. All rights reserved.
 //
 
+
+/////////////////////////USED TO CONNECT TO FIREBASE///////////////////////////////
+
 import Foundation
 import UIKit
 
-var placeData: [String: Place] = [:]
+var placeData: [Int: Place] = [:]
+var entryID = 0
 
-func addNewPlace(_ placeName: String, _ place: Place){
-    placeData[placeName] = place
+//use this to add to firebase
+func addNewPlace(_ place: Place){
+    placeData[entryID] = place
     
-    db.collection(placeName).document(place.userName).setData([
-        "userName" : place.userName,
-        "picName" : place.picName,
-        "timeStamp" : place.timeStamp,
-        "ratings" : place.ratings
+    db.collection(String(entryID)).document(place.name).setData([
+        "name" : place.name,
+        "locationAddress" : place.locationAddress,
+        "storeTimes" : place.storeTimes,
+        "foodList" : place.foodList
     ], merge: true) { err in
         if let err = err {
             print("Error writing document: \(err)")
@@ -26,4 +31,5 @@ func addNewPlace(_ placeName: String, _ place: Place){
             print("Document successfully written!")
         }
     }
+    entryID += 1
 }
