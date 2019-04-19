@@ -192,7 +192,6 @@
                     </view>
                     <connections>
                         <segue destination="gxy-mA-uhX" kind="show" identifier="search_to_restaurant_segue" id="HmE-94-7lQ"/>
-                        <segue destination="s1b-BA-pzx" kind="show" identifier="search_to_new_restaurant" id="edr-yT-zgs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pxB-63-yEg" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -222,9 +221,8 @@
                                 <color key="textColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fsr-3g-eO8">
-                                <rect key="frame" x="15" y="150" width="343" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fsr-3g-eO8">
+                                <rect key="frame" x="15" y="154" width="345" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -236,11 +234,10 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mJ2-CW-0pR">
                                 <rect key="frame" x="82" y="597" width="208" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Continue"/>
+                                <state key="normal" title="Finish"/>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hours" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HVc-lC-Rbe">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Hours" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HVc-lC-Rbe">
                                 <rect key="frame" x="15" y="202" width="352" height="42"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -271,9 +268,13 @@
                         <constraints>
                             <constraint firstItem="bhI-aj-Te4" firstAttribute="top" secondItem="14d-CN-Na1" secondAttribute="top" id="1YZ-OY-R1f"/>
                             <constraint firstItem="bhI-aj-Te4" firstAttribute="width" secondItem="EdF-1K-eiL" secondAttribute="width" id="7j3-JS-Xuz"/>
+                            <constraint firstItem="fsr-3g-eO8" firstAttribute="top" secondItem="14d-CN-Na1" secondAttribute="top" constant="90" id="PCC-dm-AyY"/>
+                            <constraint firstItem="14d-CN-Na1" firstAttribute="trailing" secondItem="fsr-3g-eO8" secondAttribute="trailing" constant="15" id="Qoj-ga-Dhm"/>
                             <constraint firstItem="14d-CN-Na1" firstAttribute="trailing" secondItem="bhI-aj-Te4" secondAttribute="trailing" id="VAD-vn-VmB"/>
+                            <constraint firstItem="fsr-3g-eO8" firstAttribute="leading" secondItem="14d-CN-Na1" secondAttribute="leading" constant="15" id="WAM-za-6ZF"/>
                             <constraint firstItem="MY6-f2-Lu6" firstAttribute="top" secondItem="bhI-aj-Te4" secondAttribute="bottom" constant="10" id="hDA-qc-wbX"/>
                             <constraint firstItem="MY6-f2-Lu6" firstAttribute="leading" secondItem="14d-CN-Na1" secondAttribute="leading" constant="10" id="i5Y-PQ-7Te"/>
+                            <constraint firstItem="HVc-lC-Rbe" firstAttribute="top" secondItem="14d-CN-Na1" secondAttribute="top" constant="138" id="nr5-qd-U5W"/>
                             <constraint firstItem="bhI-aj-Te4" firstAttribute="leading" secondItem="14d-CN-Na1" secondAttribute="leading" id="s1D-Ww-cpv"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="14d-CN-Na1"/>
@@ -281,7 +282,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ipw-gd-Exs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2524" y="-528"/>
+            <point key="canvasLocation" x="2524" y="-528.48575712143929"/>
         </scene>
         <!--Add Info View Controller-->
         <scene sceneID="gNQ-Hy-kg3">
@@ -413,7 +414,6 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="RIt-5h-tk3"/>
-        <segue reference="VML-mn-9fK"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
 </document>
