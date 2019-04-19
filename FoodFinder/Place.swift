@@ -8,21 +8,31 @@
 
 import Foundation
 import UIKit
+import MapKit
 
-class Place {
-    //var placeName: User;
+class Place: NSObject {
+    var name: String
+    var locationAddress: String
+    var lon_lat: CLLocationCoordinate2D
+    
     var userName: String!
     var picName: String!
     var picture: UIImage!
     var timeStamp: Date! = Date.init()
     var ratings: Int!
     
-    init(_ name: String, _ timer: Date, _ picname: String, _ rating: Int) { //_ user: User,
-        //self.placeName = user
+    init(_ pinName: String, _ pinLocationName: String, _ coords: CLLocationCoordinate2D, _ name: String) { //_ user: User,
+        self.name = pinName
+        self.locationAddress = pinLocationName
+        self.lon_lat = coords
+        
         self.userName = name
-        self.timeStamp = timer
-        self.picName = picname
-        self.ratings = rating
+    }
+    
+   func makeEntry(_ timer: Date, _ picname: String, _ rating: Int) {
+    self.timeStamp = timer
+    self.picName = picname
+    self.ratings = rating
     }
 }
 

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0jC-GX-Ykk">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0jC-GX-Ykk">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -38,6 +38,27 @@
                                 <color key="textColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1gD-wc-gWc">
+                                <rect key="frame" x="315" y="607" width="50" height="50"/>
+                                <color key="backgroundColor" red="1" green="0.32260576795814633" blue="0.47772086233066535" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="NEO-RA-cED"/>
+                                    <constraint firstAttribute="width" constant="50" id="ucV-g0-K3O"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="15"/>
+                                <state key="normal" title="+">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="25"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="addButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fQB-5Y-6if"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.54585342179999996" green="0.76626385370000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <color key="tintColor" red="0.54585342179999996" green="0.76626385370000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -45,27 +66,33 @@
                             <constraint firstItem="nwi-lt-HbG" firstAttribute="width" secondItem="6Tk-OE-BBY" secondAttribute="width" id="3hr-gr-TD1"/>
                             <constraint firstItem="9kO-yj-WQQ" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="6iE-8N-Oo8"/>
                             <constraint firstItem="Pvk-ex-xOX" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="29" id="9AE-F8-2EJ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="1gD-wc-gWc" secondAttribute="trailing" constant="10" id="CN0-hL-Rrh"/>
                             <constraint firstItem="9kO-yj-WQQ" firstAttribute="width" secondItem="6Tk-OE-BBY" secondAttribute="width" id="PIo-A6-v7I"/>
                             <constraint firstItem="nwi-lt-HbG" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="SL0-5A-gw8"/>
                             <constraint firstItem="nwi-lt-HbG" firstAttribute="bottom" secondItem="9kO-yj-WQQ" secondAttribute="top" id="Vd8-ho-37Y"/>
                             <constraint firstItem="9kO-yj-WQQ" firstAttribute="height" secondItem="6Tk-OE-BBY" secondAttribute="height" multiplier="0.7" id="W9F-0c-Ggn"/>
                             <constraint firstItem="Pvk-ex-xOX" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="YXg-bZ-SqE"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="1gD-wc-gWc" secondAttribute="bottom" constant="10" id="a02-r1-Bu3"/>
                             <constraint firstItem="qXu-Ro-7ww" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ayE-eI-dh0"/>
                             <constraint firstItem="9kO-yj-WQQ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="jQM-zj-xgy"/>
                             <constraint firstItem="Pvk-ex-xOX" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="ldg-Xx-PzT"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="qXu-Ro-7ww" secondAttribute="trailing" id="lwR-Rr-6l6"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="1gD-wc-gWc" secondAttribute="trailing" constant="10" id="rIt-8h-Rdh"/>
                             <constraint firstItem="qXu-Ro-7ww" firstAttribute="bottom" secondItem="nwi-lt-HbG" secondAttribute="top" id="xs8-Hl-MJs"/>
                             <constraint firstItem="9kO-yj-WQQ" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="yD2-ut-FGl"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="1gD-wc-gWc" secondAttribute="bottom" constant="10" id="ygH-cz-WBs"/>
                             <constraint firstItem="nwi-lt-HbG" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="yvO-E9-one"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="ovJ-GJ-Qvt"/>
                     <connections>
+                        <outlet property="mainSearchBar" destination="nwi-lt-HbG" id="09m-Ul-e8O"/>
                         <outlet property="mapView" destination="9kO-yj-WQQ" id="CVl-0N-Cha"/>
                         <outlet property="searchDisplayController" destination="wU5-Sb-X5l" id="wd9-bi-mym"/>
                         <segue destination="poR-l7-i9x" kind="show" identifier="main_to_search_segue" id="feF-gd-uZ6"/>
                         <segue destination="gxy-mA-uhX" kind="show" identifier="main_to_restaurant_segue" id="RIt-5h-tk3"/>
+                        <segue destination="s1b-BA-pzx" kind="show" identifier="addPlaceSeque" id="VML-mn-9fK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -78,7 +105,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="112.8" y="-527.58620689655174"/>
+            <point key="canvasLocation" x="546" y="-1499"/>
         </scene>
         <!--Search Page View Controller-->
         <scene sceneID="GI6-Qo-qI0">
@@ -254,7 +281,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ipw-gd-Exs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2605.5999999999999" y="-528.48575712143929"/>
+            <point key="canvasLocation" x="2524" y="-528"/>
         </scene>
         <!--Add Info View Controller-->
         <scene sceneID="gNQ-Hy-kg3">
@@ -385,7 +412,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="HmE-94-7lQ"/>
+        <segue reference="RIt-5h-tk3"/>
+        <segue reference="VML-mn-9fK"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
 </document>

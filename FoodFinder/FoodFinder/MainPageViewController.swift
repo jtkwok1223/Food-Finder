@@ -12,7 +12,9 @@ import CoreLocation
 
 class MainPageViewController: UIViewController, CLLocationManagerDelegate {
 
+    @IBOutlet var mainSearchBar: UISearchBar!
     @IBOutlet var mapView: MKMapView!
+    var places: [Place] = [Place("ShareTea", "2440 Bancroft Way", CLLocationCoordinate2D(latitude: 37.868274, longitude: -122.260437), "Please Bear with Mae")]
     
     // tracks location
     var locationManager = CLLocationManager()
@@ -32,6 +34,7 @@ class MainPageViewController: UIViewController, CLLocationManagerDelegate {
         
         // For mapView
         mapView.showsUserLocation = true
+
         
         if CLLocationManager.locationServicesEnabled() == true {
             if CLLocationManager.authorizationStatus() == .restricted || CLLocationManager.authorizationStatus() == .denied || CLLocationManager.authorizationStatus() == .notDetermined {
@@ -45,13 +48,35 @@ class MainPageViewController: UIViewController, CLLocationManagerDelegate {
         }
     }
 
+    
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        let region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: locations.last!.coordinate.latitude, longitude: locations.last!.coordinate.longitude), latitudinalMeters: 1500, longitudinalMeters: 1500)
+        let userLocation:CLLocation = locations[0] as CLLocation
+        let region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude), latitudinalMeters: 15000, longitudinalMeters: 15000)
         self.mapView.setRegion(region, animated: true)
+        
+        //Pinning places
+        for place in places {
+            let pin = Pin(title: place.name,
+                              locationName: place.locationAddress,
+                              coordinate: place.lon_lat)
+            self.mapView.addAnnotation(pin)
+//
+//            let artwork = Pin(title: "ShareTea",
+//                              locationName: "2440 Bancroft Way",
+//                              coordinate: CLLocationCoordinate2D(latitude: 37.868274, longitude: -122.260437))
+//            self.mapView.addAnnotation(artwork)
+        }
+        
     }
+    
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print("Unable to access location")
+    }
+    
+    
+    @IBAction func addButtonPressed(_ sender: Any) {
+        performSegue(withIdentifier: "addPlaceSeque", sender: self)
     }
 
 }
