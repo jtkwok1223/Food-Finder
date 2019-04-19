@@ -11,28 +11,30 @@ import UIKit
 import MapKit
 
 class Place: NSObject {
-    var name: String
-    var locationAddress: String
-    var lon_lat: CLLocationCoordinate2D
+    var foodList: [Food] = []
+    var name: String?
+    var locationAddress: String?
+    var storeTimes: [String:String] = [:]
+    var latitude: Double? = nil
+    var longitude: Double? = nil
+    var lon_lat: CLLocationCoordinate2D? = nil
     
-    var userName: String!
-    var picName: String!
-    var picture: UIImage!
-    var timeStamp: Date! = Date.init()
-    var ratings: Int!
-    
-    init(_ pinName: String, _ pinLocationName: String, _ coords: CLLocationCoordinate2D, _ name: String) { //_ user: User,
+    //make restaurant
+    init(_ pinName: String, _ pinLocationName: String, _ times: [String:String]) {
         self.name = pinName
         self.locationAddress = pinLocationName
-        self.lon_lat = coords
-        
-        self.userName = name
+        self.storeTimes = times
     }
     
-   func makeEntry(_ timer: Date, _ picname: String, _ rating: Int) {
-    self.timeStamp = timer
-    self.picName = picname
-    self.ratings = rating
+    func addLatLonManually(_ lat: Double, _ long: Double) {
+        self.latitude = lat
+        self.longitude = long
+        self.lon_lat = CLLocationCoordinate2D(latitude: latitude!, longitude: longitude!)
+    }
+    
+    //add food in restaurant
+    func makeEntry(_ food: Food) {
+        foodList.append(food)
     }
 }
 

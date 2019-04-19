@@ -14,12 +14,18 @@ class MainPageViewController: UIViewController, CLLocationManagerDelegate {
 
     @IBOutlet var mainSearchBar: UISearchBar!
     @IBOutlet var mapView: MKMapView!
-    var places: [Place] = [Place("ShareTea", "2440 Bancroft Way", CLLocationCoordinate2D(latitude: 37.868274, longitude: -122.260437), "Please Bear with Mae")]
+    
+    var places: [Place] = []
     
     // tracks location
     var locationManager = CLLocationManager()
     
     override func viewDidLoad() {
+        //TESTER FOR PINNING
+        let place1 = Place("ShareTea", "2440 Bancroft Way", [:])
+        place1.addLatLonManually(37.868274, -122.260437)
+        places.append(place1)
+        
         let view = UIView(frame: CGRect(x: 0, y: 0, width: 320, height: 50))
         let gradient = CAGradientLayer()
         
@@ -56,9 +62,9 @@ class MainPageViewController: UIViewController, CLLocationManagerDelegate {
         
         //Pinning places
         for place in places {
-            let pin = Pin(title: place.name,
-                              locationName: place.locationAddress,
-                              coordinate: place.lon_lat)
+            let pin = Pin(title: place.name!,
+                          locationName: place.locationAddress!,
+                          coordinate: place.lon_lat!)
             self.mapView.addAnnotation(pin)
 //
 //            let artwork = Pin(title: "ShareTea",
