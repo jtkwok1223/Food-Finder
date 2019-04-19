@@ -210,7 +210,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fsr-3g-eO8">
-                                <rect key="frame" x="15" y="154" width="345" height="30"/>
+                                <rect key="frame" x="15" y="159.5" width="345" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -222,25 +222,25 @@
                                 <state key="normal" title="Finish"/>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Opening Hour" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HVc-lC-Rbe">
-                                <rect key="frame" x="30" y="202" width="107" height="20.5"/>
+                                <rect key="frame" x="25" y="199.5" width="107" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="ZGG-As-SR4">
-                                <rect key="frame" x="20" y="212.5" width="150" height="216"/>
+                                <rect key="frame" x="20" y="210" width="150" height="216"/>
                                 <date key="date" timeIntervalSinceReferenceDate="577260687.80055797">
                                     <!--2019-04-18 06:11:27 +0000-->
                                 </date>
                             </datePicker>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="WrA-eB-Mhd">
-                                <rect key="frame" x="205" y="211.5" width="150" height="216"/>
+                                <rect key="frame" x="205" y="210" width="150" height="216"/>
                                 <date key="date" timeIntervalSinceReferenceDate="577260687.80055797">
                                     <!--2019-04-18 06:11:27 +0000-->
                                 </date>
                             </datePicker>
-                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b8e-Bx-R46">
-                                <rect key="frame" x="30" y="417.5" width="315" height="30"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b8e-Bx-R46" userLabel="Days of Week">
+                                <rect key="frame" x="30" y="416" width="315" height="30"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kw8-hl-qRf">
                                         <rect key="frame" x="0.0" y="0.0" width="45" height="30"/>
@@ -289,7 +289,7 @@
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qb0-H4-rgW">
-                                <rect key="frame" x="150" y="447.5" width="75" height="30"/>
+                                <rect key="frame" x="150" y="446" width="75" height="30"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Add">
@@ -339,7 +339,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Closing Hour" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5jJ-1V-35M">
-                                <rect key="frame" x="225.5" y="201" width="99.5" height="20.5"/>
+                                <rect key="frame" x="225.5" y="199.5" width="99.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -355,7 +355,7 @@
                             <constraint firstItem="ZGG-As-SR4" firstAttribute="top" secondItem="HVc-lC-Rbe" secondAttribute="bottom" constant="-10" id="CzO-LF-5gY"/>
                             <constraint firstItem="Z97-rg-jac" firstAttribute="leading" secondItem="14d-CN-Na1" secondAttribute="leading" constant="15" id="GTw-DN-blg"/>
                             <constraint firstItem="qb0-H4-rgW" firstAttribute="bottom" secondItem="b8e-Bx-R46" secondAttribute="bottom" constant="30" id="Md0-In-ojv"/>
-                            <constraint firstItem="fsr-3g-eO8" firstAttribute="top" secondItem="14d-CN-Na1" secondAttribute="top" constant="90" id="PCC-dm-AyY"/>
+                            <constraint firstItem="fsr-3g-eO8" firstAttribute="top" secondItem="MY6-f2-Lu6" secondAttribute="bottom" constant="5" id="PCC-dm-AyY"/>
                             <constraint firstItem="14d-CN-Na1" firstAttribute="trailing" secondItem="fsr-3g-eO8" secondAttribute="trailing" constant="15" id="Qoj-ga-Dhm"/>
                             <constraint firstItem="mJ2-CW-0pR" firstAttribute="centerX" secondItem="14d-CN-Na1" secondAttribute="centerX" id="V1W-sg-vn7"/>
                             <constraint firstItem="14d-CN-Na1" firstAttribute="trailing" secondItem="bhI-aj-Te4" secondAttribute="trailing" id="VAD-vn-VmB"/>
@@ -364,7 +364,7 @@
                             <constraint firstItem="b8e-Bx-R46" firstAttribute="leading" secondItem="14d-CN-Na1" secondAttribute="leading" constant="30" id="ZUh-G6-bK0"/>
                             <constraint firstItem="WrA-eB-Mhd" firstAttribute="width" secondItem="14d-CN-Na1" secondAttribute="width" multiplier="0.4" id="bEA-Wd-ajo"/>
                             <constraint firstItem="TDK-xP-4To" firstAttribute="bottom" secondItem="qb0-H4-rgW" secondAttribute="bottom" constant="20" id="bb0-f7-ox9"/>
-                            <constraint firstItem="5jJ-1V-35M" firstAttribute="top" secondItem="14d-CN-Na1" secondAttribute="top" constant="137" id="cst-lX-48a"/>
+                            <constraint firstItem="5jJ-1V-35M" firstAttribute="top" secondItem="fsr-3g-eO8" secondAttribute="bottom" constant="10" id="cst-lX-48a"/>
                             <constraint firstItem="14d-CN-Na1" firstAttribute="trailing" secondItem="qb0-H4-rgW" secondAttribute="trailing" constant="150" id="fhs-Gw-iH2"/>
                             <constraint firstItem="14d-CN-Na1" firstAttribute="trailing" secondItem="WrA-eB-Mhd" secondAttribute="trailing" constant="20" id="gVG-Gk-IFH"/>
                             <constraint firstItem="MY6-f2-Lu6" firstAttribute="top" secondItem="bhI-aj-Te4" secondAttribute="bottom" constant="10" id="hDA-qc-wbX"/>
@@ -373,14 +373,13 @@
                             <constraint firstItem="14d-CN-Na1" firstAttribute="bottom" secondItem="mJ2-CW-0pR" secondAttribute="bottom" constant="4" id="n23-ly-iwR"/>
                             <constraint firstItem="b8e-Bx-R46" firstAttribute="bottom" secondItem="WrA-eB-Mhd" secondAttribute="bottom" constant="20" id="n34-jl-7ZU"/>
                             <constraint firstItem="mJ2-CW-0pR" firstAttribute="width" secondItem="EdF-1K-eiL" secondAttribute="width" multiplier="0.5" id="nGd-c2-2zq"/>
-                            <constraint firstItem="HVc-lC-Rbe" firstAttribute="top" secondItem="14d-CN-Na1" secondAttribute="top" constant="138" id="nr5-qd-U5W"/>
+                            <constraint firstItem="HVc-lC-Rbe" firstAttribute="top" secondItem="fsr-3g-eO8" secondAttribute="bottom" constant="10" id="nr5-qd-U5W"/>
                             <constraint firstItem="ZGG-As-SR4" firstAttribute="width" secondItem="14d-CN-Na1" secondAttribute="width" multiplier="0.4" id="o0N-jj-xkZ"/>
                             <constraint firstItem="14d-CN-Na1" firstAttribute="trailing" secondItem="b8e-Bx-R46" secondAttribute="trailing" constant="30" id="rv3-rd-fl6"/>
                             <constraint firstItem="bhI-aj-Te4" firstAttribute="leading" secondItem="14d-CN-Na1" secondAttribute="leading" id="s1D-Ww-cpv"/>
                             <constraint firstItem="14d-CN-Na1" firstAttribute="trailing" secondItem="Z97-rg-jac" secondAttribute="trailing" constant="15" id="sAA-az-rWf"/>
-                            <constraint firstItem="HVc-lC-Rbe" firstAttribute="leading" secondItem="14d-CN-Na1" secondAttribute="leading" constant="30" id="sG5-bN-Ir2"/>
+                            <constraint firstItem="HVc-lC-Rbe" firstAttribute="leading" secondItem="14d-CN-Na1" secondAttribute="leading" constant="25" id="sG5-bN-Ir2"/>
                             <constraint firstItem="14d-CN-Na1" firstAttribute="trailing" secondItem="5jJ-1V-35M" secondAttribute="trailing" constant="50" id="vW7-D7-jfw"/>
-                            <constraint firstItem="5jJ-1V-35M" firstAttribute="leading" secondItem="HVc-lC-Rbe" secondAttribute="trailing" constant="88.5" id="wZv-Zn-ab1"/>
                             <constraint firstItem="WrA-eB-Mhd" firstAttribute="top" secondItem="5jJ-1V-35M" secondAttribute="bottom" constant="-10" id="y0u-z0-7gN"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="14d-CN-Na1"/>
@@ -531,7 +530,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="HmE-94-7lQ"/>
+        <segue reference="RIt-5h-tk3"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
 </document>
