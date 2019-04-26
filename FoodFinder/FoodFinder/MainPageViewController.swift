@@ -53,6 +53,23 @@ class MainPageViewController: UIViewController, CLLocationManagerDelegate {
             print("Please turn on your location services on.")
         }
     }
+    
+    //for searchbar hiding keyboard
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    //hiding keyboard after searching
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        mainSearchBar.resignFirstResponder()
+    }
+    
+    //    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+    //        print(self.mainSearchBar.text as Any)
+    //    }
+    //    func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
+    //        self.mainSearchBar.endEditing(true)
+    //    }
+    //
 
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
