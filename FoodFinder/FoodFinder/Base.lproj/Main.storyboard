@@ -189,7 +189,7 @@
         <!--Add New Restaurant View Controller-->
         <scene sceneID="MvY-vw-4lF">
             <objects>
-                <viewController id="s1b-BA-pzx" userLabel="Add New Restaurant View Controller" sceneMemberID="viewController">
+                <viewController id="s1b-BA-pzx" userLabel="Add New Restaurant View Controller" customClass="AddRestaurantViewController" customModule="Food_Finder" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="EdF-1K-eiL">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -214,12 +214,18 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="nameInput:" destination="s1b-BA-pzx" eventType="editingDidEnd" id="2SI-p6-0uF"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mJ2-CW-0pR">
                                 <rect key="frame" x="94" y="633" width="187.5" height="30"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Finish"/>
+                                <connections>
+                                    <action selector="finishPressed:" destination="s1b-BA-pzx" eventType="touchUpInside" id="1C9-t4-0SK"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Opening Hour" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HVc-lC-Rbe">
                                 <rect key="frame" x="25" y="199.5" width="107" height="20.5"/>
@@ -331,6 +337,9 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="locationInput:" destination="s1b-BA-pzx" eventType="editingDidEnd" id="U8x-uF-ezf"/>
+                                </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P9O-sk-v9E">
                                 <rect key="frame" x="11" y="558.5" width="65.5" height="20.5"/>
@@ -384,6 +393,22 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="14d-CN-Na1"/>
                     </view>
+                    <connections>
+                        <outlet property="addDayButton" destination="qb0-H4-rgW" id="YXZ-PP-t8U"/>
+                        <outlet property="closingHours" destination="WrA-eB-Mhd" id="hf7-2H-3H3"/>
+                        <outlet property="finishButton" destination="mJ2-CW-0pR" id="TNf-8B-7lT"/>
+                        <outlet property="friButton" destination="zc7-5s-8UO" id="Ulx-np-piX"/>
+                        <outlet property="hourDateTable" destination="TDK-xP-4To" id="yBc-p0-MRC"/>
+                        <outlet property="locationText" destination="Z97-rg-jac" id="cRT-dg-ooV"/>
+                        <outlet property="monButton" destination="Kw8-hl-qRf" id="4z5-NM-xyv"/>
+                        <outlet property="openingHours" destination="ZGG-As-SR4" id="rWN-WU-GMU"/>
+                        <outlet property="placeNameText" destination="fsr-3g-eO8" id="5i2-C9-HOa"/>
+                        <outlet property="satButton" destination="v3t-4c-nRt" id="nVf-Ru-f0W"/>
+                        <outlet property="sunButton" destination="nzT-ly-BUh" id="28T-23-sNu"/>
+                        <outlet property="thursButton" destination="xRa-ce-r54" id="oMg-Oy-NFC"/>
+                        <outlet property="tuesButton" destination="gM7-Uv-xhm" id="tTR-6j-UXv"/>
+                        <outlet property="wedButton" destination="Y2Q-Eq-lvd" id="Uis-Q4-dHm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ipw-gd-Exs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
