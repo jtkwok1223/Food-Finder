@@ -20,6 +20,7 @@
 		7CA1D4C72242D3F400A86236 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CA1D4C52242D3F400A86236 /* Main.storyboard */; };
 		7CA1D4C92242D3F500A86236 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7CA1D4C82242D3F500A86236 /* Assets.xcassets */; };
 		7CA1D4CC2242D3F500A86236 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CA1D4CA2242D3F500A86236 /* LaunchScreen.storyboard */; };
+		7CBEC8D222728FF2009B9978 /* RestaurantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBEC8D122728FF2009B9978 /* RestaurantViewController.swift */; };
 		8D9BCBCC3168957BE1522EC4 /* Pods_Food_Finder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D299D95DE38F0A720FD7EA6E /* Pods_Food_Finder.framework */; };
 /* End PBXBuildFile section */
 
@@ -40,6 +41,7 @@
 		7CA1D4C82242D3F500A86236 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7CA1D4CB2242D3F500A86236 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7CA1D4CD2242D3F600A86236 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7CBEC8D122728FF2009B9978 /* RestaurantViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantViewController.swift; sourceTree = "<group>"; };
 		D299D95DE38F0A720FD7EA6E /* Pods_Food_Finder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Food_Finder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F816D1496510E763376EF154 /* Pods-Food Finder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Food Finder.release.xcconfig"; path = "Target Support Files/Pods-Food Finder/Pods-Food Finder.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -89,7 +91,15 @@
 				A2F098372258795300AB000E /* Model */,
 				7CA1D4C12242D3F400A86236 /* AppDelegate.swift */,
 				7CA1D4C32242D3F400A86236 /* MainPageViewController.swift */,
+<<<<<<< HEAD
 				7C91472E2272A463005ACF71 /* AddRestaurantViewController.swift */,
+=======
+<<<<<<< HEAD
+				0589F60422728BF3000D2508 /* AddRestaurantViewController.swift */,
+=======
+				7CBEC8D122728FF2009B9978 /* RestaurantViewController.swift */,
+>>>>>>> 731735ae5d878d5caf27ce4cf75e70bf50956b53
+>>>>>>> 8d206167d5355a80c0d311c18e32a6b6212ad41d
 				7CA1D4C52242D3F400A86236 /* Main.storyboard */,
 				7CA1D4C82242D3F500A86236 /* Assets.xcassets */,
 				7CA1D4CA2242D3F500A86236 /* LaunchScreen.storyboard */,
@@ -258,6 +268,7 @@
 				0586D2972269349800A7B1DC /* Pin.swift in Sources */,
 				0586D29B2269586600A7B1DC /* Attributes.swift in Sources */,
 				05C644E9225F229F0038E3BF /* FoodPlaces.swift in Sources */,
+				7CBEC8D222728FF2009B9978 /* RestaurantViewController.swift in Sources */,
 				7CA1D4C42242D3F400A86236 /* MainPageViewController.swift in Sources */,
 				7CA1D4C22242D3F400A86236 /* AppDelegate.swift in Sources */,
 				7C91472F2272A463005ACF71 /* AddRestaurantViewController.swift in Sources */,
@@ -410,6 +421,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = B67Y24X6FL;
 				INFOPLIST_FILE = "$(SRCROOT)/FoodFinder/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -428,6 +440,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = B67Y24X6FL;
 				INFOPLIST_FILE = "$(SRCROOT)/FoodFinder/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
