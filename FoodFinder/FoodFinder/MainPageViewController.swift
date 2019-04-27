@@ -10,7 +10,11 @@ import UIKit
 import MapKit
 import CoreLocation
 
+<<<<<<< HEAD
 class MainPageViewController: UIViewController, CLLocationManagerDelegate, UISearchBarDelegate {
+=======
+class MainPageViewController: UIViewController, CLLocationManagerDelegate, UISearchBarDelegate  {
+>>>>>>> my-temporary-work
 
     @IBOutlet var mainSearchBar: UISearchBar!
     @IBOutlet var mapView: MKMapView!
@@ -57,6 +61,10 @@ class MainPageViewController: UIViewController, CLLocationManagerDelegate, UISea
             print("Please turn on your location services on.")
         }
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> my-temporary-work
     //for searchbar hiding keyboard
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
@@ -65,6 +73,16 @@ class MainPageViewController: UIViewController, CLLocationManagerDelegate, UISea
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         mainSearchBar.resignFirstResponder()
     }
+<<<<<<< HEAD
+=======
+    
+    //    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+    //        print(self.mainSearchBar.text as Any)
+    //    }
+    //    func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
+    //        self.mainSearchBar.endEditing(true)
+    //    }
+>>>>>>> my-temporary-work
     
 //    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
 //        print(self.mainSearchBar.text as Any)
