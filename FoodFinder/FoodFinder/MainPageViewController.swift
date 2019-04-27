@@ -11,9 +11,13 @@ import MapKit
 import CoreLocation
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 class MainPageViewController: UIViewController, CLLocationManagerDelegate, UISearchBarDelegate {
 =======
 class MainPageViewController: UIViewController, CLLocationManagerDelegate, UISearchBarDelegate  {
+>>>>>>> my-temporary-work
+=======
+class MainPageViewController: UIViewController, CLLocationManagerDelegate, UISearchBarDelegate, UISearchBarDelegate {
 >>>>>>> my-temporary-work
 
     @IBOutlet var mainSearchBar: UISearchBar!
