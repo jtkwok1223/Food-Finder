@@ -10,7 +10,7 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class MainPageViewController: UIViewController, CLLocationManagerDelegate, UISearchBarDelegate  {
+class MainPageViewController: UIViewController, CLLocationManagerDelegate, UISearchBarDelegate, UISearchBarDelegate {
 
     @IBOutlet var mainSearchBar: UISearchBar!
     @IBOutlet var mapView: MKMapView!
