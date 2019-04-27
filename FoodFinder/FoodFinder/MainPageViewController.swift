@@ -10,19 +10,7 @@ import UIKit
 import MapKit
 import CoreLocation
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 class MainPageViewController: UIViewController, CLLocationManagerDelegate, UISearchBarDelegate {
-=======
-class MainPageViewController: UIViewController, CLLocationManagerDelegate, UISearchBarDelegate  {
->>>>>>> my-temporary-work
-=======
-class MainPageViewController: UIViewController, CLLocationManagerDelegate, UISearchBarDelegate, UISearchBarDelegate {
->>>>>>> my-temporary-work
-=======
-class MainPageViewController: UIViewController, CLLocationManagerDelegate, UISearchBarDelegate {
->>>>>>> c532f78f4d0010ab71841a40a54c52c68cc70b08
 
     @IBOutlet var mainSearchBar: UISearchBar!
     @IBOutlet var mapView: MKMapView!
@@ -37,7 +25,6 @@ class MainPageViewController: UIViewController, CLLocationManagerDelegate, UISea
         let place1 = Place("ShareTea", "2440 Bancroft Way", [:])
         place1.addLatLonManually(37.868274, -122.260437)
         places.append(place1)
-        
         
         let view = UIView(frame: CGRect(x: 0, y: 0, width: 320, height: 50))
         let gradient = CAGradientLayer()
@@ -69,10 +56,7 @@ class MainPageViewController: UIViewController, CLLocationManagerDelegate, UISea
             print("Please turn on your location services on.")
         }
     }
-<<<<<<< HEAD
-=======
 
->>>>>>> my-temporary-work
     //for searchbar hiding keyboard
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
@@ -81,8 +65,6 @@ class MainPageViewController: UIViewController, CLLocationManagerDelegate, UISea
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         mainSearchBar.resignFirstResponder()
     }
-<<<<<<< HEAD
-=======
     
     //    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
     //        print(self.mainSearchBar.text as Any)
@@ -90,28 +72,19 @@ class MainPageViewController: UIViewController, CLLocationManagerDelegate, UISea
     //    func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
     //        self.mainSearchBar.endEditing(true)
     //    }
->>>>>>> my-temporary-work
     
-//    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-//        print(self.mainSearchBar.text as Any)
-//    }
-
-//    func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
-//        self.mainSearchBar.endEditing(true)
-//    }
-//
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let userLocation:CLLocation = locations[0] as CLLocation
         let region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude), latitudinalMeters: 15000, longitudinalMeters: 15000)
         self.mapView.setRegion(region, animated: true)
-
+        
         //Pinning places
         for place in places {
             let pin = Pin(title: place.name!,
                           locationName: place.locationAddress!,
                           coordinate: place.lon_lat!)
             self.mapView.addAnnotation(pin)
-            
+//
 //            let artwork = Pin(title: "ShareTea",
 //                              locationName: "2440 Bancroft Way",
 //                              coordinate: CLLocationCoordinate2D(latitude: 37.868274, longitude: -122.260437))

@@ -2,11 +2,7 @@
 //  RestaurantViewController.swift
 //  Food Finder
 //
-<<<<<<< HEAD
-//  Created by Jennifer Kwok on 4/25/19.
-=======
 //  Created by Jennifer Kwok on 4/26/19.
->>>>>>> my-temporary-work
 //  Copyright © 2019 iOSDecal. All rights reserved.
 //
 
