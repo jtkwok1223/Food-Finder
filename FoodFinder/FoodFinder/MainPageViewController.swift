@@ -12,6 +12,7 @@ import CoreLocation
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 class MainPageViewController: UIViewController, CLLocationManagerDelegate, UISearchBarDelegate {
 =======
 class MainPageViewController: UIViewController, CLLocationManagerDelegate, UISearchBarDelegate  {
@@ -19,6 +20,9 @@ class MainPageViewController: UIViewController, CLLocationManagerDelegate, UISea
 =======
 class MainPageViewController: UIViewController, CLLocationManagerDelegate, UISearchBarDelegate, UISearchBarDelegate {
 >>>>>>> my-temporary-work
+=======
+class MainPageViewController: UIViewController, CLLocationManagerDelegate, UISearchBarDelegate {
+>>>>>>> c532f78f4d0010ab71841a40a54c52c68cc70b08
 
     @IBOutlet var mainSearchBar: UISearchBar!
     @IBOutlet var mapView: MKMapView!
