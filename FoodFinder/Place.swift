@@ -11,7 +11,11 @@ import UIKit
 import MapKit
 
 class Place: NSObject {
-    var foodList: [Food] = []
+    var MenuItems: [String] = []
+    var MenuPrices: [Float] = []
+    var MenuAttrs: [String] = [] //I GUESS JUST A STRING OF WHETHER EACH ATTR APPLIES?
+    var MenuToppings: [String] = []
+    var MenuToppingPrices: [Float] = []
     var name: String?
     var locationAddress: String?
     var storeTimes: [String:String] = [:]
@@ -24,6 +28,7 @@ class Place: NSObject {
         self.name = pinName
         self.locationAddress = pinLocationName
         self.storeTimes = times
+        
     }
     
     func addLatLonManually(_ lat: Double, _ long: Double) {
