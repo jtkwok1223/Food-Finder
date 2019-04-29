@@ -19,8 +19,7 @@ func addNewPlace(_ place: Place){
     db.collection(String(entryID)).document(place.name!).setData([
         "name" : place.name,
         "locationAddress" : place.locationAddress,
-        "storeTimes" : place.storeTimes,
-        "foodList" : place.foodList
+        "storeTimes" : place.storeTimes
     ], merge: true) { err in
         if let err = err {
             print("Error writing document: \(err)")

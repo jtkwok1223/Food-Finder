@@ -38,8 +38,5 @@ class Place: NSObject {
     }
     
     //add food in restaurant
-    func makeEntry(_ food: Food) {
-        foodList.append(food)
-    }
 }
 
