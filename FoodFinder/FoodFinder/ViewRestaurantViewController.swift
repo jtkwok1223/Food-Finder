@@ -57,7 +57,7 @@ class ViewRestaurantViewController: UIViewController, UITableViewDelegate, UITab
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "menu_cell") as? MenuItemViewCell {
-            cell.MenuItemName.text = "AAA"
+            cell.MenuItemName.text = "TEST"
             return cell
         }
         
@@ -67,6 +67,8 @@ class ViewRestaurantViewController: UIViewController, UITableViewDelegate, UITab
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        MenuView.delegate = self
+        MenuView.dataSource = self
         
         
         // Do any additional setup after loading the view.
