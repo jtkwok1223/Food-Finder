@@ -31,6 +31,10 @@ class Place: NSObject {
         
     }
     
+    override init() {
+        
+    }
+    
     func addLatLonManually(_ lat: Double, _ long: Double) {
         self.latitude = lat
         self.longitude = long
