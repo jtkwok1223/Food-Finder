@@ -91,14 +91,14 @@ class ViewRestaurantViewController: UIViewController, UITableViewDelegate, UITab
         MenuView.dataSource = self
         makedummyplace()
         RestaurantName.text  = Restaurant.name
-        RestaurantHours.text = "TEST"
+        RestaurantHours.text = FormatTime()
         
         
         // Do any additional setup after loading the view.
     }
     
     func makedummyplace() {
-        let storeTimes: [String] = ["-","-","-","-","-","-","-"]
+        let storeTimes: [String] = ["9-11,11-24","11-24","11-24","11-24","12-24","10-21","10-21"]
         Restaurant = Place("Boba Cafe", "123 Street", storeTimes)
         Restaurant.MenuItems = ["Milk Tea", "Thai Milk Tea", "Ice Cream Milk Tea", "Green Apple Tea"]
         Restaurant.MenuAttrs = ["", "", "", ""]
@@ -107,9 +107,32 @@ class ViewRestaurantViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     func FormatPrice(price: Float) -> String {
-        var priceString = String(price)
-        priceString = "$" + priceString
+        var priceString = String(format: "$%.02f", price)
         return priceString
+    }
+    
+    func FormatTime() -> String {
+        let dow = ["Mon", "Tue", "Wed", "Thur", "Fri", "Sat", "Sun"]
+        var dict: [String: [Int]] = [:]
+        for i in 0...6 {
+            for time in Restaurant.storeTimes[i].components(separatedBy: ",") {
+                if dict[time] == nil {
+                    dict[time] = []
+                }
+                dict[time]! += [i]
+            }
+        }
+        print(dict)
+        var final: [String] = ["","","","","","",""]
+        for (key, value) in dict {
+            
+        }
+        var finalstring = ""
+        for date in final {
+            finalstring += date
+            finalstring += ", "
+        }
+        return finalstring
     }
     
     
