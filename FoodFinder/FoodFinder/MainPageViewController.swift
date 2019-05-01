@@ -10,7 +10,7 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class MainPageViewController: UIViewController, CLLocationManagerDelegate {
+class MainPageViewController: UIViewController, CLLocationManagerDelegate, UISearchBarDelegate {
 
     @IBOutlet var mainSearchBar: UISearchBar!
     @IBOutlet var mapView: MKMapView!
@@ -38,6 +38,9 @@ class MainPageViewController: UIViewController, CLLocationManagerDelegate {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        //searchbar
+        mainSearchBar.delegate = self
+        
         // For mapView
         mapView.showsUserLocation = true
 
@@ -54,6 +57,21 @@ class MainPageViewController: UIViewController, CLLocationManagerDelegate {
         }
     }
 
+    //for searchbar hiding keyboard
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    //hiding keyboard after searching
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        mainSearchBar.resignFirstResponder()
+    }
+    
+    //    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+    //        print(self.mainSearchBar.text as Any)
+    //    }
+    //    func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
+    //        self.mainSearchBar.endEditing(true)
+    //    }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let userLocation:CLLocation = locations[0] as CLLocation
@@ -75,6 +93,9 @@ class MainPageViewController: UIViewController, CLLocationManagerDelegate {
         
     }
     
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        self.performSegue(withIdentifier: "ViewRestaurantViewController", sender: nil)
+    }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print("Unable to access location")
