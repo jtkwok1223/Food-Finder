@@ -92,6 +92,7 @@ class ViewRestaurantViewController: UIViewController, UITableViewDelegate, UITab
         makedummyplace()
         RestaurantName.text  = Restaurant.name
         RestaurantHours.text = FormatTime()
+        RestaurantImage.image = UIImage(named: "placeholderRestaurant")
         
         
         // Do any additional setup after loading the view.
