@@ -10,6 +10,7 @@ import UIKit
 
 class MenuItemViewCell: UITableViewCell {
     
+    @IBOutlet weak var itemImage: UIImageView!
     @IBOutlet weak var MenuItemName: UILabel!
     
     @IBOutlet weak var MenuItemPrice: UILabel!
@@ -63,12 +64,14 @@ class ViewRestaurantViewController: UIViewController, UITableViewDelegate, UITab
             if let cell = tableView.dequeueReusableCell(withIdentifier: "menu_cell") as? MenuItemViewCell {
                 cell.MenuItemName.text = Restaurant.MenuItems[indexPath.row]
                 cell.MenuItemPrice.text = FormatPrice(price: Restaurant.MenuPrices[indexPath.row])
+                cell.itemImage.image = UIImage(named: "placeholderDrink")
                 return cell
             }
         }
         else if indexPath.row  < menucount + Restaurant.MenuToppings.count {
             if let cell = tableView.dequeueReusableCell(withIdentifier: "menu_cell") as? MenuItemViewCell {
                 cell.MenuItemName.text = Restaurant.MenuToppings[indexPath.row - menucount]
+                cell.itemImage.image = UIImage(named: "placeholderTopping")
                 return cell
             }
             
@@ -95,7 +98,7 @@ class ViewRestaurantViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     func makedummyplace() {
-        let storeTimes: [String:String] = ["Mon - Fri":"2 - 3 PM"]
+        let storeTimes: [String] = ["-","-","-","-","-","-","-"]
         Restaurant = Place("Boba Cafe", "123 Street", storeTimes)
         Restaurant.MenuItems = ["Milk Tea", "Thai Milk Tea", "Ice Cream Milk Tea", "Green Apple Tea"]
         Restaurant.MenuAttrs = ["", "", "", ""]

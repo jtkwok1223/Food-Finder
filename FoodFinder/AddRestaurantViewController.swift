@@ -39,7 +39,7 @@ class AddRestaurantViewController: UIViewController {
     var placeName: String?
     var datePicked: String?
     var locationAddress: String?
-    var dictionaryTimes : [String:String?] = ["Mon":nil, "Tues": nil, "Wed":nil, "Thurs":nil, "Fri":nil, "Sat":nil, "Sun":nil]
+    var dictionaryTimes : [String] = ["-","-","-","-","-","-","-"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,7 +57,7 @@ class AddRestaurantViewController: UIViewController {
     }
     
     @IBAction func finishPressed(_ sender: UIButton) {
-        let newPlace = Place(placeName!, locationAddress!, dictionaryTimes as! [String : String]);
+        let newPlace = Place(placeName!, locationAddress!, dictionaryTimes);
         addNewPlace(newPlace); //sends to firebase database
         cleanPage()
     }
@@ -66,7 +66,7 @@ class AddRestaurantViewController: UIViewController {
         placeName = ""
         datePicked = ""
         locationAddress = ""
-        dictionaryTimes = ["Mon":nil, "Tues": nil, "Wed":nil, "Thurs":nil, "Fri":nil, "Sat":nil, "Sun":nil]
+        var dictionaryTimes : [String] = ["-","-","-","-","-","-","-"]
     }
     
 }

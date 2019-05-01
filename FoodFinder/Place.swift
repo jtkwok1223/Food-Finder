@@ -13,18 +13,18 @@ import MapKit
 class Place: NSObject {
     var MenuItems: [String] = []
     var MenuPrices: [Float] = []
-    var MenuAttrs: [String] = [] //I GUESS JUST A STRING OF WHETHER EACH ATTR APPLIES?
+    var MenuAttrs: [String] = [] //I GUESS JUST A STRING OF WHETHER EACH ATTR APPLIES? FFTFF
     var MenuToppings: [String] = []
     var MenuToppingPrices: [Float] = []
     var name: String?
     var locationAddress: String?
-    var storeTimes: [String:String] = [:]
+    var storeTimes: [String] = []
     var latitude: Double? = nil
     var longitude: Double? = nil
     var lon_lat: CLLocationCoordinate2D? = nil
     
     //make restaurant
-    init(_ pinName: String, _ pinLocationName: String, _ times: [String:String]) {
+    init(_ pinName: String, _ pinLocationName: String, _ times: [String]) {
         self.name = pinName
         self.locationAddress = pinLocationName
         self.storeTimes = times
