@@ -16,47 +16,77 @@ class AddMenuItemViewController: UIViewController {
     
     @IBOutlet weak var milkButton: UIButton!
     
-    @IBAction func milkButtonPressed(_ sender: Any) {
+    @IBAction func milkButtonPressed(_ sender: UIButton) {
+        ismilk = !ismilk
+        setpressedcolor(button: sender, pressed: ismilk)
     }
     
     @IBAction func fruitButton(_ sender: Any) {
     }
     
-    @IBAction func fruitButtonPressed(_ sender: Any) {
+    @IBAction func fruitButtonPressed(_ sender: UIButton) {
+        isfruit = !isfruit
+        setpressedcolor(button: sender, pressed: isfruit)
     }
     
     @IBOutlet weak var dairyButton: UIButton!
     
     
-    @IBAction func dairyButtonPressed(_ sender: Any) {
+    @IBAction func dairyButtonPressed(_ sender: UIButton) {
+        isdairyfree = !isdairyfree
+        setpressedcolor(button: sender, pressed: isdairyfree)
     }
     
     
     @IBOutlet weak var veganButton: UIButton!
     
     
-    @IBAction func veganButtonPressed(_ sender: Any) {
+    @IBAction func veganButtonPressed(_ sender: UIButton) {
+        isvegan = !isvegan
+        setpressedcolor(button: sender, pressed: isvegan)
     }
     
     
     @IBOutlet weak var hotButton: UIButton!
     
     
-    @IBAction func hotButtonPressed(_ sender: Any) {
+    @IBAction func hotButtonPressed(_ sender: UIButton) {
+        ishot = !ishot
+        setpressedcolor(button: sender, pressed: ishot)
     }
     
     
     @IBAction func coldButton(_ sender: Any) {
+        
     }
     
     
-    @IBAction func coldButtonPressed(_ sender: Any) {
+    @IBAction func coldButtonPressed(_ sender: UIButton) {
+        iscold = !iscold
+        setpressedcolor(button: sender, pressed: iscold)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+    }
+    
+    var ismilk = false
+    var isfruit = false
+    var isdairyfree = false
+    var isvegan = false
+    var ishot = false
+    var iscold = false
+    
+    
+    func setpressedcolor(button: UIButton, pressed: Bool) {
+        if pressed {
+            button.backgroundColor = UIColor(hue: 209, saturation: 0.44, brightness: 0.98, alpha: 0.5)
+        } else {
+            button.backgroundColor = UIColor(hue: 209, saturation: 0.44, brightness: 0.58, alpha: 0.5)
+        }
+        
     }
     
     
