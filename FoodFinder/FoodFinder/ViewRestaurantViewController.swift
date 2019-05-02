@@ -71,6 +71,7 @@ class ViewRestaurantViewController: UIViewController, UITableViewDelegate, UITab
         else if indexPath.row  < menucount + Restaurant.MenuToppings.count {
             if let cell = tableView.dequeueReusableCell(withIdentifier: "menu_cell") as? MenuItemViewCell {
                 cell.MenuItemName.text = Restaurant.MenuToppings[indexPath.row - menucount]
+                cell.MenuItemPrice.text = FormatPrice(price: Restaurant.MenuToppingPrices[indexPath.row - menucount])
                 cell.itemImage.image = UIImage(named: "placeholderTopping")
                 return cell
             }
@@ -105,11 +106,11 @@ class ViewRestaurantViewController: UIViewController, UITableViewDelegate, UITab
         Restaurant.MenuAttrs = ["", "", "", ""]
         Restaurant.MenuPrices = [3.3, 3.35, 4.00, 4]
         Restaurant.MenuToppings = ["Pearl", "Ice Cream", "Egg Pudding"]
+        Restaurant.MenuToppingPrices = [0.5, 0.5, 0.5]
     }
     
     func FormatPrice(price: Float) -> String {
-        var priceString = String(format: "$%.02f", price)
-        return priceString
+        return String(format: "$%.02f", price)
     }
     
     func FormatTime() -> String {
@@ -126,17 +127,69 @@ class ViewRestaurantViewController: UIViewController, UITableViewDelegate, UITab
         print(dict)
         var final: [String] = ["","","","","","",""]
         for (key, value) in dict {
+            var i = 0
+            if key != "-" {
+                while i < value.count {
+                let endrun = endofRun(start: i, lst: value)
+                    if final[value[i]] != "" {
+                        final[value[i]] += ", "
+                    }
+                    if endrun > i {
+                        final[value[i]] += dow[value[i]] + "-" + dow[value[endrun]]
+                        final[value[i]] += " " + toTime(raw: key)
+                        i = endrun + 1
+                    } else {
+                        final[value[i]] += dow[value[i]]
+                        final[value[i]] += " " + toTime(raw: key)
+                        i += 1
+                    }
+                }
+            }
             
         }
         var finalstring = ""
-        for date in final {
-            finalstring += date
-            finalstring += ", "
+        for i in 0...final.count - 1 {
+            let date = final[i]
+            if date != "" {
+                finalstring += date
+                if i < (final.count - 2) {
+                    finalstring += "; "
+                }
+            }
         }
         return finalstring
     }
     
+    func toTime(raw: String) -> String {
+        let rawrange = raw.components(separatedBy: "-")
+        return toAMPM(raw: rawrange[0]) + " - " + toAMPM(raw: rawrange[1])
     
+    }
+    
+    func toAMPM(raw: String) -> String {
+        let rawint = Int(raw)!
+        if rawint == 12 {
+            return "12 PM"
+        } else if rawint == 0 {
+            return "12 AM"
+        } else if rawint > 12 {
+            return String(rawint - 12) + " PM"
+        } else {
+            return raw + " AM"
+        }
+    }
+    
+    func endofRun(start: Int, lst: [Int]) -> Int {
+        if (start + 1 > lst.count - 1) {
+            return start
+        }
+        for i in start + 1...lst.count - 1 {
+            if lst[i] != lst[i - 1] + 1 {
+                return i - 1
+            }
+        }
+        return lst.count - 1
+    }
     
     
     /*
