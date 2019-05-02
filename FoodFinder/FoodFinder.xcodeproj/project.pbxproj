@@ -22,6 +22,7 @@
 		7CA1D4CC2242D3F500A86236 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CA1D4CA2242D3F500A86236 /* LaunchScreen.storyboard */; };
 		8D9BCBCC3168957BE1522EC4 /* Pods_Food_Finder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D299D95DE38F0A720FD7EA6E /* Pods_Food_Finder.framework */; };
 		A20ADE3922765BE800911F8A /* ViewRestaurantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20ADE3822765BE800911F8A /* ViewRestaurantViewController.swift */; };
+		A283B060227ABEC000E4C3D3 /* AddMenuItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A283B05F227ABEC000E4C3D3 /* AddMenuItemViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		7CA1D4CB2242D3F500A86236 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7CA1D4CD2242D3F600A86236 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A20ADE3822765BE800911F8A /* ViewRestaurantViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRestaurantViewController.swift; sourceTree = "<group>"; };
+		A283B05F227ABEC000E4C3D3 /* AddMenuItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMenuItemViewController.swift; sourceTree = "<group>"; };
 		D299D95DE38F0A720FD7EA6E /* Pods_Food_Finder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Food_Finder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F816D1496510E763376EF154 /* Pods-Food Finder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Food Finder.release.xcconfig"; path = "Target Support Files/Pods-Food Finder/Pods-Food Finder.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -93,6 +95,7 @@
 				7CA1D4C32242D3F400A86236 /* MainPageViewController.swift */,
 				0589F60422728BF3000D2508 /* AddRestaurantViewController.swift */,
 				A20ADE3822765BE800911F8A /* ViewRestaurantViewController.swift */,
+				A283B05F227ABEC000E4C3D3 /* AddMenuItemViewController.swift */,
 				7CA1D4C52242D3F400A86236 /* Main.storyboard */,
 				7CA1D4C82242D3F500A86236 /* Assets.xcassets */,
 				7CA1D4CA2242D3F500A86236 /* LaunchScreen.storyboard */,
@@ -263,6 +266,7 @@
 				05C644E9225F229F0038E3BF /* FoodPlaces.swift in Sources */,
 				A20ADE3922765BE800911F8A /* ViewRestaurantViewController.swift in Sources */,
 				7CA1D4C42242D3F400A86236 /* MainPageViewController.swift in Sources */,
+				A283B060227ABEC000E4C3D3 /* AddMenuItemViewController.swift in Sources */,
 				0589F60522728BF3000D2508 /* AddRestaurantViewController.swift in Sources */,
 				7CA1D4C22242D3F400A86236 /* AppDelegate.swift in Sources */,
 				05C644ED225F2CEB0038E3BF /* User.swift in Sources */,

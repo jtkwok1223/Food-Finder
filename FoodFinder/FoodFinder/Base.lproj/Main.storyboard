@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gxy-mA-uhX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="5lO-CI-baK">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -442,7 +442,7 @@
         <!--Add Info View Controller-->
         <scene sceneID="gNQ-Hy-kg3">
             <objects>
-                <viewController id="e1v-As-qhg" userLabel="Add Info View Controller" sceneMemberID="viewController">
+                <viewController id="e1v-As-qhg" userLabel="Add Info View Controller" customClass="AddMenuItemViewController" customModule="Food_Finder" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gPB-yf-OIo">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -588,6 +588,22 @@
             </objects>
             <point key="canvasLocation" x="1885.5999999999999" y="283.80809595202402"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="MhZ-2J-fqG">
+            <objects>
+                <navigationController id="5lO-CI-baK" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="MjL-Al-BPd">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="gxy-mA-uhX" kind="relationship" relationship="rootViewController" id="oUw-iz-HbW"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nER-lS-1dX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1303" y="337"/>
+        </scene>
         <!--Restaurant View Controller-->
         <scene sceneID="EaH-ia-DFU">
             <objects>
@@ -671,21 +687,21 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x0e-UR-8Q8">
-                                                    <rect key="frame" x="146.5" y="7" width="82" height="30"/>
-                                                    <state key="normal" title="Add an Item">
-                                                        <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    </state>
-                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Item" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZqH-pj-k5D">
+                                                    <rect key="frame" x="0.0" y="10" width="375" height="23.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="x0e-UR-8Q8" firstAttribute="centerX" secondItem="TrX-T5-4TW" secondAttribute="centerX" id="Tza-k2-aol"/>
-                                                <constraint firstItem="x0e-UR-8Q8" firstAttribute="centerY" secondItem="TrX-T5-4TW" secondAttribute="centerY" id="XsU-gp-Gcp"/>
+                                                <constraint firstAttribute="bottom" secondItem="ZqH-pj-k5D" secondAttribute="bottom" constant="10" id="3am-E0-tO4"/>
+                                                <constraint firstItem="ZqH-pj-k5D" firstAttribute="centerX" secondItem="TrX-T5-4TW" secondAttribute="centerX" id="GcQ-Rs-6eR"/>
+                                                <constraint firstItem="ZqH-pj-k5D" firstAttribute="centerY" secondItem="TrX-T5-4TW" secondAttribute="centerY" id="KWL-bw-J3d"/>
+                                                <constraint firstItem="ZqH-pj-k5D" firstAttribute="width" secondItem="TrX-T5-4TW" secondAttribute="width" id="pMt-am-Lvx"/>
+                                                <constraint firstAttribute="top" secondItem="ZqH-pj-k5D" secondAttribute="top" constant="-10" id="wUC-lG-eXv"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="AddItemButton" destination="x0e-UR-8Q8" id="2pn-jm-Udu"/>
-                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -724,6 +740,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="f6R-AM-UtX"/>
                     </view>
+                    <navigationItem key="navigationItem" id="cmx-vQ-KgD"/>
                     <connections>
                         <outlet property="MenuView" destination="myp-KK-Lai" id="Gq9-TB-TRh"/>
                         <outlet property="RestaurantHours" destination="c8p-7G-OCx" id="baZ-dW-kbg"/>
@@ -754,7 +771,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="RIt-5h-tk3"/>
+        <segue reference="oUw-iz-HbW"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
 </document>

@@ -31,7 +31,6 @@ class MenuItemViewCell: UITableViewCell {
 
 class AddItemViewCell: UITableViewCell {
     
-    @IBOutlet weak var AddItemButton: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -44,6 +43,8 @@ class AddItemViewCell: UITableViewCell {
     }
 }
 class ViewRestaurantViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    var sendbackitem = 0
     
     var Restaurant: Place = Place()
     
@@ -86,6 +87,14 @@ class ViewRestaurantViewController: UIViewController, UITableViewDelegate, UITab
             }
         }
         return UITableViewCell()
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("I WAS HERE")
+        if indexPath.row == Restaurant.MenuToppings.count + Restaurant.MenuItems.count {
+            performSegue(withIdentifier: "restaurant_to_add_segue", sender: nil)
+        }
+        
     }
     
     
