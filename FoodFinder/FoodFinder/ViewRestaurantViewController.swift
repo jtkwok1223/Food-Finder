@@ -92,10 +92,13 @@ class ViewRestaurantViewController: UIViewController, UITableViewDelegate, UITab
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("I WAS HERE")
         if indexPath.row == Restaurant.MenuToppings.count + Restaurant.MenuItems.count {
+            sendbackitem = 4
             performSegue(withIdentifier: "restaurant_to_add_segue", sender: nil)
         }
         
     }
+    
+
     
     
     override func viewDidLoad() {

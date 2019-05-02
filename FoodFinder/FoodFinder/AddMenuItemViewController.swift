@@ -9,13 +9,68 @@
 import UIKit
 
 class AddMenuItemViewController: UIViewController {
-
+    
+    @IBOutlet weak var nameText: UITextField!
+    
+    @IBOutlet weak var priceText: UITextField!
+    
+    @IBOutlet weak var milkButton: UIButton!
+    
+    @IBAction func milkButtonPressed(_ sender: Any) {
+    }
+    
+    @IBAction func fruitButton(_ sender: Any) {
+    }
+    
+    @IBAction func fruitButtonPressed(_ sender: Any) {
+    }
+    
+    @IBOutlet weak var dairyButton: UIButton!
+    
+    
+    @IBAction func dairyButtonPressed(_ sender: Any) {
+    }
+    
+    
+    @IBOutlet weak var veganButton: UIButton!
+    
+    
+    @IBAction func veganButtonPressed(_ sender: Any) {
+    }
+    
+    
+    @IBOutlet weak var hotButton: UIButton!
+    
+    
+    @IBAction func hotButtonPressed(_ sender: Any) {
+    }
+    
+    
+    @IBAction func coldButton(_ sender: Any) {
+    }
+    
+    
+    @IBAction func coldButtonPressed(_ sender: Any) {
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     
+    
+    @IBAction func SubmitButton(_ sender: Any) {
+        let alertView = UIAlertController(title: "Item Added.", message: "Menu item has been added.", preferredStyle: .actionSheet)
+        
+        
+        let okAction = UIAlertAction (title: "Ok", style: .destructive )
+        { alertAction in
+            self.performSegue(withIdentifier: "unwind_added_item", sender: self)
+        }
+        alertView.addAction(okAction)
+        self.present(alertView, animated: true, completion: nil)
+    }
 
     
 
