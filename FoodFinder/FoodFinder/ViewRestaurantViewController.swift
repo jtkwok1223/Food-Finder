@@ -15,6 +15,7 @@ class MenuItemViewCell: UITableViewCell {
     
     @IBOutlet weak var MenuItemPrice: UILabel!
     
+    @IBOutlet weak var MenuItemProperties: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -65,6 +66,7 @@ class ViewRestaurantViewController: UIViewController, UITableViewDelegate, UITab
                 cell.MenuItemName.text = Restaurant.MenuItems[indexPath.row]
                 cell.MenuItemPrice.text = FormatPrice(price: Restaurant.MenuPrices[indexPath.row])
                 cell.itemImage.image = UIImage(named: "placeholderDrink")
+                cell.MenuItemProperties.text = FormatAttrs(attrs: Restaurant.MenuAttrs[indexPath.row])
                 return cell
             }
         }
@@ -73,6 +75,7 @@ class ViewRestaurantViewController: UIViewController, UITableViewDelegate, UITab
                 cell.MenuItemName.text = Restaurant.MenuToppings[indexPath.row - menucount]
                 cell.MenuItemPrice.text = FormatPrice(price: Restaurant.MenuToppingPrices[indexPath.row - menucount])
                 cell.itemImage.image = UIImage(named: "placeholderTopping")
+                cell.MenuItemProperties.text = " "
                 return cell
             }
             
@@ -103,12 +106,30 @@ class ViewRestaurantViewController: UIViewController, UITableViewDelegate, UITab
         let storeTimes: [String] = ["9-11,11-24","11-24","11-24","11-24","12-24","10-21","10-21"]
         Restaurant = Place("Boba Cafe", "123 Street", storeTimes)
         Restaurant.MenuItems = ["Milk Tea", "Thai Milk Tea", "Ice Cream Milk Tea", "Green Apple Tea"]
-        Restaurant.MenuAttrs = ["", "", "", ""]
+        Restaurant.MenuAttrs = ["TFFFTT", "TTFFTT", "TTTTTT", "FFFFFF"]
         Restaurant.MenuPrices = [3.3, 3.35, 4.00, 4]
         Restaurant.MenuToppings = ["Pearl", "Ice Cream", "Egg Pudding"]
         Restaurant.MenuToppingPrices = [0.5, 0.5, 0.5]
     }
     
+    func FormatAttrs(attrs: String) -> String {
+        let attrnames = ["Milk", "Fruit", "Non-Dairy", "Vegan", "Hot", "Cold"]
+        var final = ""
+        var counter = 0
+        for char in attrs {
+            if char == "T" {
+                final += attrnames[counter]
+                if counter < (attrs.count - 1) {
+                    final += ", "
+                }
+            }
+            counter += 1
+        }
+        if final == "" {
+            return " "
+        }
+        return final
+    }
     func FormatPrice(price: Float) -> String {
         return String(format: "$%.02f", price)
     }
