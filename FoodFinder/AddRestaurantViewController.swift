@@ -9,7 +9,7 @@
 ////////TO DO: IMPLEMENT UIDATEPICKER and day-of-the-week buttons, hourDateTable
 import UIKit
 
-class AddRestaurantViewController: UIViewController {
+class AddRestaurantViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var placeNameText: UITextField!
     
     @IBOutlet var openingHours: UIDatePicker!
@@ -45,8 +45,20 @@ class AddRestaurantViewController: UIViewController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+        placeNameText.delegate = self
+        locationText.delegate = self;
     }
     
+    //for searchbar hiding keyboard
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    //hiding keyboard after typing
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool // called when 'return' key pressed. return NO to ignore.
+    {
+        textField.resignFirstResponder()
+        return true;
+    }
     
     @IBAction func nameInput(_ sender: UITextField) {
         placeName = sender.text;
