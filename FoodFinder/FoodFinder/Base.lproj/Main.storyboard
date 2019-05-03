@@ -611,9 +611,11 @@
                         <outlet property="nameText" destination="t18-d8-KDo" id="PRs-oE-eZ8"/>
                         <outlet property="priceText" destination="3ng-Co-9sU" id="ypv-MS-gy6"/>
                         <outlet property="veganButton" destination="odI-VM-7ZW" id="N9I-Pc-2Uq"/>
+                        <segue destination="HqO-vU-uEA" kind="unwind" identifier="unwind_added_item" unwindAction="unwind_added_itemWithSegue:" id="YsA-l6-MfT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yNa-Mu-7hF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="HqO-vU-uEA" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1885.5999999999999" y="283.80809595202402"/>
         </scene>
