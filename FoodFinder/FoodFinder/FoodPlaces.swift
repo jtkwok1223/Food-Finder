@@ -29,3 +29,17 @@ func addNewPlace(_ place: Place){
     }
     entryID += 1
 }
+
+func pullPlace(_ place: Place) {
+    let docRef = db.collection(String(entryID)).document(place.name!)
+    
+    docRef.getDocument { (document, error) in
+        if let document = document, document.exists {
+            if let dataDescription = document.data() {
+                print(dataDescription)
+            }
+        } else {
+            print("Document does not exist")
+        }
+    }
+}

@@ -98,8 +98,6 @@ class ViewRestaurantViewController: UIViewController, UITableViewDelegate, UITab
         
     }
     
-
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
