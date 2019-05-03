@@ -44,7 +44,6 @@ class AddItemViewCell: UITableViewCell {
 }
 class ViewRestaurantViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var sendbackitem = 0
     
     var Restaurant: Place = Place()
     
@@ -90,28 +89,28 @@ class ViewRestaurantViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("I WAS HERE")
         if indexPath.row == Restaurant.MenuToppings.count + Restaurant.MenuItems.count {
-            sendbackitem = 4
             performSegue(withIdentifier: "restaurant_to_add_segue", sender: nil)
         }
         
     }
     
-
+    @IBAction func unwind_added_item(segue:UIStoryboardSegue) {
+        repullFromFB()
+    }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         MenuView.delegate = self
         MenuView.dataSource = self
-        makedummyplace()
-        RestaurantName.text  = Restaurant.name
-        RestaurantHours.text = FormatTime()
-        RestaurantImage.image = UIImage(named: "placeholderRestaurant")
         
         
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        repullFromFB()
     }
     
     func makedummyplace() {
@@ -122,6 +121,16 @@ class ViewRestaurantViewController: UIViewController, UITableViewDelegate, UITab
         Restaurant.MenuPrices = [3.3, 3.35, 4.00, 4]
         Restaurant.MenuToppings = ["Pearl", "Ice Cream", "Egg Pudding"]
         Restaurant.MenuToppingPrices = [0.5, 0.5, 0.5]
+    }
+    
+    func repullFromFB() {
+        print("IT KEEPS HAPPENING")
+        makedummyplace() //TODO: PULL FROM FIREBASE
+        RestaurantName.text  = Restaurant.name
+        RestaurantHours.text = FormatTime()
+        RestaurantImage.image = UIImage(named: "placeholderRestaurant")
+        MenuView.reloadData()
+        
     }
     
     func FormatAttrs(attrs: String) -> String {
@@ -157,7 +166,6 @@ class ViewRestaurantViewController: UIViewController, UITableViewDelegate, UITab
                 dict[time]! += [i]
             }
         }
-        print(dict)
         var final: [String] = ["","","","","","",""]
         for (key, value) in dict {
             var i = 0
