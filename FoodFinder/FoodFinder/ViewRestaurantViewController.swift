@@ -42,6 +42,8 @@ class AddItemViewCell: UITableViewCell {
                 // Configure the view for the selected state
     }
 }
+
+
 class ViewRestaurantViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     
@@ -233,14 +235,17 @@ class ViewRestaurantViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let dest = segue.destination as? AddMenuItemViewController {
+            dest.place = Restaurant;
+        }
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
     }
-    */
+ 
 
 }

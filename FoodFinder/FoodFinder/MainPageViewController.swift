@@ -22,7 +22,7 @@ class MainPageViewController: UIViewController, CLLocationManagerDelegate, UISea
     
     override func viewDidLoad() {
         //TESTER FOR PINNING
-        let place1 = Place("ShareTea", "2440 Bancroft Way", [])
+        let place1 = Place("ShareTea", "2440 Bancroft Way", [] as! [String])
         place1.addLatLonManually(37.868274, -122.260437)
         places.append(place1)
         

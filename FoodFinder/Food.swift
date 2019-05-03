@@ -11,12 +11,12 @@ import UIKit
 
 class Food {
     var name: String
-    var price: Double
+    var price: Float
     var attr: Attributes
     //var picString: String
     
     //make food
-    init(_ nameFood: String, _ priceFood: Double, _ attributesFood: Attributes) {
+    init? (_ nameFood: String, _ priceFood: Float, _ attributesFood: Attributes) {
         self.name = nameFood
         self.price = priceFood
         self.attr = attributesFood
