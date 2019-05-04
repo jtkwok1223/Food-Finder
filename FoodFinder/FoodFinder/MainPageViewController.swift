@@ -15,6 +15,8 @@ class MainPageViewController: UIViewController, CLLocationManagerDelegate, UISea
     @IBOutlet var mainSearchBar: UISearchBar!
     @IBOutlet var mapView: MKMapView!
     
+    var isSearching = false;
+    
     var places: [Place] = []
     
     // tracks location
