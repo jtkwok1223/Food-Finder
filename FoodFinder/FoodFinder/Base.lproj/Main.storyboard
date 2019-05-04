@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0jC-GX-Ykk">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0jC-GX-Ykk">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -240,7 +240,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="ZGG-As-SR4">
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="30" translatesAutoresizingMaskIntoConstraints="NO" id="ZGG-As-SR4">
                                 <rect key="frame" x="10" y="209" width="150" height="182"/>
                                 <date key="date" timeIntervalSinceReferenceDate="577260687.80055797">
                                     <!--2019-04-18 06:11:27 +0000-->
@@ -253,36 +253,57 @@
                                         <rect key="frame" x="0.0" y="0.0" width="49.5" height="30"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="Mon"/>
+                                        <connections>
+                                            <action selector="monButtonPressed:" destination="s1b-BA-pzx" eventType="touchUpInside" id="Ord-QS-ptP"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gM7-Uv-xhm">
                                         <rect key="frame" x="49.5" y="0.0" width="49" height="30"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="Tues"/>
+                                        <connections>
+                                            <action selector="tuesButtonPressed:" destination="s1b-BA-pzx" eventType="touchUpInside" id="lbw-0o-rzO"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y2Q-Eq-lvd">
                                         <rect key="frame" x="98.5" y="0.0" width="49.5" height="30"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="Wed "/>
+                                        <connections>
+                                            <action selector="wedButtonPressed:" destination="s1b-BA-pzx" eventType="touchUpInside" id="6A2-5z-7Vt"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xRa-ce-r54">
                                         <rect key="frame" x="148" y="0.0" width="49" height="30"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="Thurs"/>
+                                        <connections>
+                                            <action selector="thursButtonPressed:" destination="s1b-BA-pzx" eventType="touchUpInside" id="oQ3-XO-6Rv"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zc7-5s-8UO">
                                         <rect key="frame" x="197" y="0.0" width="49.5" height="30"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="Fri"/>
+                                        <connections>
+                                            <action selector="friButtonPressed:" destination="s1b-BA-pzx" eventType="touchUpInside" id="r4c-N2-lgK"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v3t-4c-nRt">
                                         <rect key="frame" x="246.5" y="0.0" width="49" height="30"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="Sat"/>
+                                        <connections>
+                                            <action selector="satButtonPressed:" destination="s1b-BA-pzx" eventType="touchUpInside" id="Q7g-8h-hL0"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nzT-ly-BUh">
                                         <rect key="frame" x="295.5" y="0.0" width="49.5" height="30"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="Sun"/>
+                                        <connections>
+                                            <action selector="sunButtonPressed:" destination="s1b-BA-pzx" eventType="touchUpInside" id="wbl-Kv-PR8"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -324,7 +345,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="WrA-eB-Mhd">
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="30" translatesAutoresizingMaskIntoConstraints="NO" id="WrA-eB-Mhd">
                                 <rect key="frame" x="165" y="209" width="150" height="182"/>
                                 <date key="date" timeIntervalSinceReferenceDate="577260687.80055797">
                                     <!--2019-04-18 06:11:27 +0000-->
