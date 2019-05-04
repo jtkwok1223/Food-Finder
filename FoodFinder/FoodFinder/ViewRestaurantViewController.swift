@@ -128,6 +128,7 @@ class ViewRestaurantViewController: UIViewController, UITableViewDelegate, UITab
     func repullFromFB() {
         print("IT KEEPS HAPPENING")
         makedummyplace() //TODO: PULL FROM FIREBASE
+        //Restaurant = repullPlace(Restaurant)
         RestaurantName.text  = Restaurant.name
         RestaurantHours.text = FormatTime()
         RestaurantImage.image = UIImage(named: "placeholderRestaurant")

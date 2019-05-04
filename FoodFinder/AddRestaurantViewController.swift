@@ -16,13 +16,50 @@ class AddRestaurantViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var closingHours: UIDatePicker!
     let datePicker = UIDatePicker()
 
+        var buttonspressed = [false, false, false, false, false, false, false]
+    
     @IBOutlet var monButton: UIButton!
+    
+    @IBAction func monButtonPressed(_ sender: Any) {
+    }
+    
+    
     @IBOutlet var tuesButton: UIButton!
+    
+    
+    @IBAction func tuesButtonPressed(_ sender: Any) {
+    }
+    
     @IBOutlet var wedButton: UIButton!
+    
+    
+    @IBAction func wedButtonPressed(_ sender: Any) {
+    }
+    
     @IBOutlet var thursButton: UIButton!
+    
+    @IBAction func thursButtonPressed(_ sender: Any) {
+    }
+    
+    
     @IBOutlet var friButton: UIButton!
+    
+    
+    @IBAction func friButtonPressed(_ sender: Any) {
+    }
+    
     @IBOutlet var satButton: UIButton!
+    
+    @IBAction func satButtonPressed(_ sender: Any) {
+    }
+    
+    
     @IBOutlet var sunButton: UIButton!
+    
+    @IBAction func sunButtonPressed(_ sender: Any) {
+    }
+    
+    
     @IBOutlet var addDayButton: UIButton!
     
     @IBOutlet var hourDateTable: UITableView!

@@ -82,14 +82,6 @@ class AddMenuItemViewController: UIViewController {
     var iscold = false
     
     
-    func setpressedcolor(button: UIButton, pressed: Bool) {
-        if pressed {
-            button.backgroundColor = UIColor(hue: 209, saturation: 0.44, brightness: 0.98, alpha: 0.5)
-        } else {
-            button.backgroundColor = UIColor(hue: 209, saturation: 0.44, brightness: 0.58, alpha: 0.5)
-        }
-        
-    }
     
     
     @IBAction func SubmitButton(_ sender: Any) {
