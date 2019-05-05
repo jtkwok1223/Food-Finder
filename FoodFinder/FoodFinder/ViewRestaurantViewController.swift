@@ -133,9 +133,16 @@ class ViewRestaurantViewController: UIViewController, UITableViewDelegate, UITab
                 //var pulledPlace = Place(
             //makedummyplace()
         }
-        print("startget")
-        Restaurant = repullPlace(Restaurant)
-        print("endget")
+        RestaurantName.text  = Restaurant.name
+        repullPlace(Restaurant) { newres in
+            self.Restaurant = newres
+            
+            self.RestaurantHours.text = self.FormatTime()
+            self.RestaurantImage.image = UIImage(named: "placeholderRestaurant")
+            self.MenuView.reloadData()
+            
+            
+        }
         //Restaurant = getglobalplace()
         
     }

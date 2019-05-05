@@ -97,7 +97,7 @@ func updateFoodList(_ place: Place, _ food: Food){
 
 
 //for the map and places table
-func repullPlace(_ place: Place) -> Place {
+func repullPlace(_ place: Place, completion: @escaping (Place) -> Void){
     findStoreID(place)
     var newplace = Place()
     let docRef = db.collection("0").document(place.name!)
@@ -112,9 +112,8 @@ func repullPlace(_ place: Place) -> Place {
         } else {
             print("Document does not exist")
         }
+        completion(newplace)
     }
-    print("synch")
-    return newplace
 }
 
 
