@@ -25,6 +25,7 @@
 		A20ADE3922765BE800911F8A /* ViewRestaurantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20ADE3822765BE800911F8A /* ViewRestaurantViewController.swift */; };
 		A283B060227ABEC000E4C3D3 /* AddMenuItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A283B05F227ABEC000E4C3D3 /* AddMenuItemViewController.swift */; };
 		A283B062227E38B600E4C3D3 /* UIcolorextension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A283B061227E38B600E4C3D3 /* UIcolorextension.swift */; };
+		A283B064227E598600E4C3D3 /* timehelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A283B063227E598600E4C3D3 /* timehelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		A20ADE3822765BE800911F8A /* ViewRestaurantViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRestaurantViewController.swift; sourceTree = "<group>"; };
 		A283B05F227ABEC000E4C3D3 /* AddMenuItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMenuItemViewController.swift; sourceTree = "<group>"; };
 		A283B061227E38B600E4C3D3 /* UIcolorextension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIcolorextension.swift; sourceTree = "<group>"; };
+		A283B063227E598600E4C3D3 /* timehelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = timehelper.swift; sourceTree = "<group>"; };
 		D299D95DE38F0A720FD7EA6E /* Pods_Food_Finder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Food_Finder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F816D1496510E763376EF154 /* Pods-Food Finder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Food Finder.release.xcconfig"; path = "Target Support Files/Pods-Food Finder/Pods-Food Finder.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -119,6 +121,7 @@
 				0586D29A2269586600A7B1DC /* Attributes.swift */,
 				A283B061227E38B600E4C3D3 /* UIcolorextension.swift */,
 				05C644EA225F260A0038E3BF /* Place.swift */,
+				A283B063227E598600E4C3D3 /* timehelper.swift */,
 				05C644EC225F2CEB0038E3BF /* User.swift */,
 			);
 			path = Model;
@@ -269,6 +272,7 @@
 				0586D299226956B800A7B1DC /* Food.swift in Sources */,
 				0586D2972269349800A7B1DC /* Pin.swift in Sources */,
 				0586D29B2269586600A7B1DC /* Attributes.swift in Sources */,
+				A283B064227E598600E4C3D3 /* timehelper.swift in Sources */,
 				05C644E9225F229F0038E3BF /* FoodPlaces.swift in Sources */,
 				A20ADE3922765BE800911F8A /* ViewRestaurantViewController.swift in Sources */,
 				7CA1D4C42242D3F400A86236 /* MainPageViewController.swift in Sources */,

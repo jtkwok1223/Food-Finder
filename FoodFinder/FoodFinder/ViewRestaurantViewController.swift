@@ -116,7 +116,7 @@ class ViewRestaurantViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     func makedummyplace() {
-        let storeTimes: [String] = ["9-11,11-24","11-24","11-24","11-24","12-24","10-21","10-21"]
+        let storeTimes: [String] = ["9:00AM-11:00PM,9:00 AM-11:00PM","9:00 AM-11:00PM","9:00AM-3:00 PM,5:00 PM-11:00 PM","11:00 AM-10:00 PM","11:00 AM-10:00 PM","11:00 AM-10:00 PM","11:00 AM-10:00 PM"]
         Restaurant = Place("Boba Cafe", "123 Street", storeTimes)
         Restaurant.MenuItems = ["Milk Tea", "Thai Milk Tea", "Ice Cream Milk Tea", "Green Apple Tea"]
         Restaurant.MenuAttrs = ["TFFFTT", "TTFFTT", "TTTTTT", "FFFFFF"]
@@ -159,7 +159,6 @@ class ViewRestaurantViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     func FormatTime() -> String {
-        let dow = ["Mon", "Tue", "Wed", "Thur", "Fri", "Sat", "Sun"]
         var dict: [String: [Int]] = [:]
         for i in 0...6 {
             for time in Restaurant.storeTimes[i].components(separatedBy: ",") {
@@ -180,11 +179,11 @@ class ViewRestaurantViewController: UIViewController, UITableViewDelegate, UITab
                     }
                     if endrun > i {
                         final[value[i]] += dow[value[i]] + "-" + dow[value[endrun]]
-                        final[value[i]] += " " + toTime(raw: key)
+                        final[value[i]] += " " + key
                         i = endrun + 1
                     } else {
                         final[value[i]] += dow[value[i]]
-                        final[value[i]] += " " + toTime(raw: key)
+                        final[value[i]] += " " + key
                         i += 1
                     }
                 }
@@ -204,24 +203,6 @@ class ViewRestaurantViewController: UIViewController, UITableViewDelegate, UITab
         return finalstring
     }
     
-    func toTime(raw: String) -> String {
-        let rawrange = raw.components(separatedBy: "-")
-        return toAMPM(raw: rawrange[0]) + " - " + toAMPM(raw: rawrange[1])
-    
-    }
-    
-    func toAMPM(raw: String) -> String {
-        let rawint = Int(raw)!
-        if rawint == 12 {
-            return "12 PM"
-        } else if rawint == 0 {
-            return "12 AM"
-        } else if rawint > 12 {
-            return String(rawint - 12) + " PM"
-        } else {
-            return raw + " AM"
-        }
-    }
     
     func endofRun(start: Int, lst: [Int]) -> Int {
         if (start + 1 > lst.count - 1) {
