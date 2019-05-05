@@ -191,10 +191,15 @@ class AddRestaurantViewController: UIViewController, UITextFieldDelegate, UITabl
     
     @IBAction func finishPressed(_ sender: UIButton) {
         
-        //let newPlace = Place(placeName!, locationAddress!, dictionaryTimes);
+        
+        dictionaryTimes = timesCreateNew(times: times)
+        print(dictionaryTimes)
+        print(placeName)
+        print(locationAddress)
+        let newPlace = Place(placeName!, locationAddress!, dictionaryTimes);
         
         
-        //addNewPlace(newPlace); //sends to firebase database
+        addNewPlace(newPlace); //sends to firebase database
         cleanPage()
     }
     
@@ -202,7 +207,9 @@ class AddRestaurantViewController: UIViewController, UITextFieldDelegate, UITabl
         placeName = ""
         datePicked = ""
         locationAddress = ""
-        var dictionaryTimes : [String] = ["-","-","-","-","-","-","-"]
+        dictionaryTimes = ["-","-","-","-","-","-","-"]
+        times = []
+        hourDateTable.reloadData()
     }
     
 }

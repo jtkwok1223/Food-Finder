@@ -11,4 +11,22 @@ import Foundation
 
 let dow = ["Mon", "Tue", "Wed", "Thur", "Fri", "Sat", "Sun"]
 
-
+func timesCreateNew(times: [[String : [Int]]]) -> [String] {
+    var timeset = ["","","","","","",""]
+    for entry in times {
+        for key in entry.keys {
+            for val in entry[key]! {
+                if timeset[val] != "" {
+                    timeset[val] += ","
+                }
+                timeset[val] += key
+            }
+        }
+    }
+    for i in 0...timeset.count - 1 {
+        if timeset[i] == "" {
+            timeset[i] = "-"
+        }
+    }
+    return timeset
+}
