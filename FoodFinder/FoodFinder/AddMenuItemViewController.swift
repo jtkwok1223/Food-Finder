@@ -12,6 +12,8 @@ class AddMenuItemViewController: UIViewController {
     
     var place : Place!
     
+    
+    
     @IBOutlet weak var nameText: UITextField!
     
     @IBOutlet weak var priceText: UITextField!
@@ -87,6 +89,7 @@ class AddMenuItemViewController: UIViewController {
     @IBAction func SubmitButton(_ sender: Any) {
         let addFood = Food(nameText.text ?? "", (priceText.text! as NSString).floatValue, Attributes(ismilk, isfruit, isdairyfree, isvegan, isvegan, iscold))!
         updateFoodList(place, addFood)
+        
         let alertView = UIAlertController(title: "Item Added.", message: "Menu item has been added.", preferredStyle: .actionSheet)
         
         

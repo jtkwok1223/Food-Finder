@@ -11,8 +11,6 @@ import UIKit
 
 class timeViewCell: UITableViewCell {
     
-    @IBAction func XPressed(_ sender: Any) {
-    }
     
     @IBOutlet weak var timeEntry: UITextView!
     
@@ -37,11 +35,25 @@ class AddRestaurantViewController: UIViewController, UITextFieldDelegate, UITabl
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "time_view_cell") as? timeViewCell {
-            
+            let entry = times[indexPath.row]
+            var strgen = ""
+            for key in entry.keys {
+                for val in entry[key]! {
+                    strgen += dow[val] + " "
+                }
+                strgen += key
+            }
+            cell.timeEntry.text = strgen
             return cell
         }
         return UITableViewCell()
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        times.remove(at: indexPath.row)
+        hourDateTable.reloadData()
+    }
+    
     
     @IBOutlet var placeNameText: UITextField!
     
@@ -64,7 +76,7 @@ class AddRestaurantViewController: UIViewController, UITextFieldDelegate, UITabl
     
     
     @IBAction func tuesButtonPressed(_ sender: Any) {
-        buttonspressed[1] = !buttonspressed[0]
+        buttonspressed[1] = !buttonspressed[1]
         setpressedcolor(button: tuesButton, pressed: buttonspressed[1])
     }
     
