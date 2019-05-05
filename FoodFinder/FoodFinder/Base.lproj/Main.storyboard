@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="s1b-BA-pzx">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0jC-GX-Ykk">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -119,7 +119,7 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="restaurant_cell" rowHeight="107" id="JGF-KH-IHL">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="restaurant_cell" rowHeight="107" id="JGF-KH-IHL" customClass="SearchViewCell" customModule="Food_Finder" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="107"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="JGF-KH-IHL" id="Pez-vF-WeI">
@@ -164,6 +164,11 @@
                                                 <constraint firstItem="XJg-Um-Ln6" firstAttribute="top" secondItem="1f6-xG-qcE" secondAttribute="bottom" constant="4" id="x9d-O2-YNQ"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="DistanceAway" destination="XJg-Um-Ln6" id="GLV-7x-Md5"/>
+                                            <outlet property="RestaurantName" destination="1f6-xG-qcE" id="EhT-Co-lPc"/>
+                                            <outlet property="searchViewImage" destination="1ka-cS-A2U" id="R95-8m-SYa"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -178,8 +183,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="S9O-eQ-Mms"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Results for (query)" id="Ce5-20-1ea"/>
+                    <navigationItem key="navigationItem" title="Results" id="Ce5-20-1ea"/>
                     <connections>
+                        <outlet property="SearchRestaurantsView" destination="sqP-e3-nCm" id="hIZ-yD-mrW"/>
                         <segue destination="gxy-mA-uhX" kind="show" identifier="search_to_restaurant_segue" id="HmE-94-7lQ"/>
                     </connections>
                 </viewController>
@@ -825,7 +831,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="oUw-iz-HbW"/>
+        <segue reference="HmE-94-7lQ"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
 </document>
