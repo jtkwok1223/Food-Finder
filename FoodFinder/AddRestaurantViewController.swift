@@ -29,14 +29,15 @@ class timeViewCell: UITableViewCell {
 
 class AddRestaurantViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource {
     
-    
+    var times: [[String : [Int]]] = []
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return times.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "time_view_cell") as? timeViewCell {
+            
             return cell
         }
         return UITableViewCell()
@@ -111,6 +112,22 @@ class AddRestaurantViewController: UIViewController, UITextFieldDelegate, UITabl
     
     
     @IBAction func addDayPressed(_ sender: Any) {
+        //var times: [[String : [Int]]] = []
+        let dateformatter = DateFormatter()
+        dateformatter.dateFormat = "h:mm a"
+        
+        let open = dateformatter.string(from: openingHours!.date)
+        let close = dateformatter.string(from: closingHours!.date)
+        
+        var days: [Int] = []
+        for i in  0...buttonspressed.count - 1 {
+            if buttonspressed[i] {
+                days += [i]
+            }
+        }
+        
+        times += [[open + "-" + close : days]]
+        hourDateTable.reloadData()
     }
     
     
@@ -164,13 +181,6 @@ class AddRestaurantViewController: UIViewController, UITextFieldDelegate, UITabl
         
         //let newPlace = Place(placeName!, locationAddress!, dictionaryTimes);
         
-        
-        let dateformatter = DateFormatter()
-        dateformatter.dateFormat = "h:mm a"
-        let openTime: Date = openingHours!.date;
-        
-        let closeTime: Date = closingHours!.date;
-        let open = dateformatter.string(from: openTime)
         
         //addNewPlace(newPlace); //sends to firebase database
         cleanPage()
