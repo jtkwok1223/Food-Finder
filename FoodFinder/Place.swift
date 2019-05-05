@@ -49,15 +49,14 @@ class Place: NSObject {
         self.ID = pullData["ID"] as! Int
         self.name = pullData["Name"] as? String
         self.locationAddress = pullData["LocationAddress"] as? String
-        self.latitude = pullData["Long"] as! Double
-        self.longitude = pullData["Lat"] as! Double
-        self.storeTimes = pullData["StoreTimes"] as! [String]
+        self.latitude = 0.0//pullData["Long"] as! Double
+        self.longitude = 0.0//pullData["Lat"] as! Double
+        self.storeTimes = pullData["storeTimes"] as! [String]
         self.MenuItems = pullData["MenuItems"] as! [String]
         self.MenuAttrs = pullData["MenuAttrs"] as! [String]
         self.MenuPrices = pullData["MenuPrices"] as! [Float]
         self.MenuToppings = pullData["MenuToppings"] as! [String]
         self.MenuToppingPrices = pullData["MenuToppingPrices"] as! [Float]
-        self.pullData = pullData
     }
     
     override init() {

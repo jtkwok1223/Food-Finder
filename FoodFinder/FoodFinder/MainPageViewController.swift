@@ -101,6 +101,7 @@ class MainPageViewController: UIViewController, CLLocationManagerDelegate, UISea
     }
     
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        
         self.performSegue(withIdentifier: "ViewRestaurantViewController", sender: nil)
     }
     

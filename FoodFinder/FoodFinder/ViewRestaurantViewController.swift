@@ -126,13 +126,17 @@ class ViewRestaurantViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     func repullFromFB() {
-        print("IT KEEPS HAPPENING")
-        makedummyplace() //TODO: PULL FROM FIREBASE
-        //Restaurant = repullPlace(Restaurant)
-        RestaurantName.text  = Restaurant.name
-        RestaurantHours.text = FormatTime()
-        RestaurantImage.image = UIImage(named: "placeholderRestaurant")
-        MenuView.reloadData()
+        if Restaurant.name == Place().name {
+            //print("no restaurant")
+            Restaurant.name = "ShareTea"
+            
+                //var pulledPlace = Place(
+            //makedummyplace()
+        }
+        print("startget")
+        Restaurant = repullPlace(Restaurant)
+        print("endget")
+        //Restaurant = getglobalplace()
         
     }
     
@@ -160,6 +164,9 @@ class ViewRestaurantViewController: UIViewController, UITableViewDelegate, UITab
     
     func FormatTime() -> String {
         var dict: [String: [Int]] = [:]
+        if Restaurant.storeTimes.count == 0 {
+            return ""
+        }
         for i in 0...6 {
             for time in Restaurant.storeTimes[i].components(separatedBy: ",") {
                 if dict[time] == nil {

@@ -46,11 +46,12 @@ func updateNextOpenIndex() {
 }
 
 func findStoreID(_ place: Place) {
-    let docRef = db.collection(place.name!).document(place.locationAddress!);
+    let docRef = db.collection("0").document(place.name!);
     docRef.getDocument { (document, error) in
         if let document = document, document.exists {
             if let dataDescription = document.data() {
-                getterID = dataDescription["id"] as! Int
+                
+                getterID = dataDescription["ID"] as! Int
             }
         } else {
             print("Document does not exist")
@@ -78,12 +79,12 @@ func storeID(_ place: Place) {
 //use this to update place with the food
 func updateFoodList(_ place: Place, _ food: Food){
     findStoreID(place)
-    db.collection(String(getterID)).document(":3c").setData([
+    db.collection("0").document(place.name!).setData([
         "MenuAttrs" : place.MenuAttrs,
         "MenuItems" : place.MenuItems,
         "MenuPrices" : place.MenuPrices,
         "MenuToppings" : place.MenuToppings,
-        "MenuToppingPrices" : place.MenuToppingPrices
+        "MenuToppingPrices" : place.MenuToppingPrices,
     ], merge: true) { err in
         if let err = err {
             print("Error writing document: \(err)")
@@ -93,34 +94,47 @@ func updateFoodList(_ place: Place, _ food: Food){
     }
 }
 
+
+
 //for the map and places table
 func repullPlace(_ place: Place) -> Place {
-    var pulledPlace = Place()
     findStoreID(place)
-    let docRef = db.collection(String(getterID)).document(":3c")
+    var newplace = Place()
+    let docRef = db.collection("0").document(place.name!)
     docRef.getDocument { (document, error) in
         if let document = document, document.exists {
             if let dataDescription = document.data() {
-                pulledPlace = Place(dataDescription)
+                print("getting it?")
+                newplace = Place(dataDescription)
+            } else {
+                print("error here")
             }
         } else {
             print("Document does not exist")
         }
     }
-    return pulledPlace
+    print("synch")
+    return newplace
 }
 
 
 
 //use this to add to firebase
 func addNewPlace(_ place: Place){
-    getNextOpenIndex(); //updates entryID
-    db.collection(String(entryID)).document(":3c").setData([
+    getNextOpenIndex() //updates entryID
+    db.collection("0").document(place.name!).setData([
         "ID" : entryID,
-        "Name" : place.name,
-        "LocationAddress" : place.locationAddress,
+        "Name" : place.name!,
+        "LocationAddress" : place.locationAddress!,
         "Location" : "", //to be verified ourselves
         "StoreTimes" : place.storeTimes,
+        "MenuItems" : [],
+        "MenuPrices" : [],
+        "MenuToppings" : [],
+        "MenuToppingPrices" : []
+        //"ID" : getNextOpenIndex()
+        
+        
     ], merge: true) { err in
         if let err = err {
             print("Error writing document: \(err)")
