@@ -194,13 +194,20 @@ class AddRestaurantViewController: UIViewController, UITextFieldDelegate, UITabl
         
         dictionaryTimes = timesCreateNew(times: times)
         print(dictionaryTimes)
-        print(placeName)
-        print(locationAddress)
+        print(placeName ?? "")
+        print(locationAddress ?? "")
         let newPlace = Place(placeName!, locationAddress!, dictionaryTimes);
         
         
         addNewPlace(newPlace); //sends to firebase database
         cleanPage()
+        
+        let alert = UIAlertController(title: "Your new resturant is under review", message: "", preferredStyle: UIAlertController.Style.alert)
+        let postAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default) { UIAlertAction in self.finishButton
+        }
+        alert.addAction(postAction)
+        
+        self.present(alert, animated: true, completion: nil)
     }
     
     func cleanPage() {

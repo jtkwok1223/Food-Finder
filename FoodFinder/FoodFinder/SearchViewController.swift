@@ -50,7 +50,7 @@ class SearchViewCell: UITableViewCell {
         }
         
         override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-            if let dest = segue.destination as? ViewRestaurantViewController {
+            if segue.destination is ViewRestaurantViewController {
                 //dest.Restaurant = Restaurant; TODO: Set proper restaurant for the view restaurant view
             }
         }
