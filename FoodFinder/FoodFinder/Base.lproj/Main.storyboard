@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="s1b-BA-pzx">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0jC-GX-Ykk">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -87,8 +87,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="ovJ-GJ-Qvt"/>
                     <connections>
-                        <outlet property="mainSearchBar" destination="nwi-lt-HbG" id="09m-Ul-e8O"/>
                         <outlet property="mapView" destination="9kO-yj-WQQ" id="CVl-0N-Cha"/>
+                        <outlet property="searchBar" destination="nwi-lt-HbG" id="i1B-ew-b3m"/>
                         <outlet property="searchDisplayController" destination="wU5-Sb-X5l" id="wd9-bi-mym"/>
                         <segue destination="poR-l7-i9x" kind="show" identifier="main_to_search_segue" id="feF-gd-uZ6"/>
                         <segue destination="gxy-mA-uhX" kind="show" identifier="main_to_restaurant_segue" id="RIt-5h-tk3"/>
@@ -110,7 +110,7 @@
         <!--Search Page View Controller-->
         <scene sceneID="GI6-Qo-qI0">
             <objects>
-                <viewController id="poR-l7-i9x" userLabel="Search Page View Controller" sceneMemberID="viewController">
+                <viewController id="poR-l7-i9x" userLabel="Search Page View Controller" customClass="SearchViewController" customModule="Food_Finder" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ElF-Fm-GLr">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -835,7 +835,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="oUw-iz-HbW"/>
+        <segue reference="RIt-5h-tk3"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
 </document>

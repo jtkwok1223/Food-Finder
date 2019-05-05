@@ -138,7 +138,7 @@ func pullAllPlaces() {
     getNextOpenIndex() //updates entryID
     let maxi = entryID - 1
     
-    for i in 0...maxi {
+    for i in 0...0{
         let docRef = db.collection(String(i)).document(":3c")
         docRef.getDocument { (document, error) in
             if let document = document, document.exists {

@@ -12,15 +12,22 @@ import CoreLocation
 
 class MainPageViewController: UIViewController, CLLocationManagerDelegate, UISearchBarDelegate {
 
-    @IBOutlet var mainSearchBar: UISearchBar!
+    @IBOutlet var searchBar: UISearchBar!
     @IBOutlet var mapView: MKMapView!
     
+    var userInput: String = ""
+    
     var places: [Place] = []
+    var filteredPlaces : [Place] = []
     
     // tracks location
     var locationManager = CLLocationManager()
     
     override func viewDidLoad() {
+        //pull from Firebase and get all Places that exist
+        pullAllPlaces()
+        self.places = allPlaces
+        
         //TESTER FOR PINNING
         let place1 = Place("ShareTea", "2440 Bancroft Way", [] as! [String])
         place1.addLatLonManually(37.868274, -122.260437)
@@ -39,7 +46,8 @@ class MainPageViewController: UIViewController, CLLocationManagerDelegate, UISea
         // Do any additional setup after loading the view, typically from a nib.
         
         //searchbar
-        mainSearchBar.delegate = self
+        searchBar.delegate = self
+        searchBar.returnKeyType = UIReturnKeyType.done
         
         // For mapView
         mapView.showsUserLocation = true
@@ -63,7 +71,7 @@ class MainPageViewController: UIViewController, CLLocationManagerDelegate, UISea
     }
     //hiding keyboard after searching
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        mainSearchBar.resignFirstResponder()
+        searchBar.resignFirstResponder()
     }
     
     //    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
@@ -90,7 +98,6 @@ class MainPageViewController: UIViewController, CLLocationManagerDelegate, UISea
 //                              coordinate: CLLocationCoordinate2D(latitude: 37.868274, longitude: -122.260437))
 //            self.mapView.addAnnotation(artwork)
         }
-        
     }
     
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
@@ -101,6 +108,24 @@ class MainPageViewController: UIViewController, CLLocationManagerDelegate, UISea
         print("Unable to access location")
     }
     
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        if (searchBar.text == nil || searchBar.text == "") {
+            view.endEditing(true)
+        } else {
+            //store user input drink, and get filtered data
+            userInput = searchBar.text!
+            filterSearch(userInput)
+        }
+    }
+    
+    func filterSearch(_ userInput: String) {
+        filteredPlaces = []
+        for place in places {
+            if (place.MenuItems.contains(userInput)) {
+                filteredPlaces.append(place)
+            }
+        }
+    }
     
     @IBAction func addButtonPressed(_ sender: Any) {
         performSegue(withIdentifier: "addPlaceSeque", sender: self)
