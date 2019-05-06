@@ -86,19 +86,22 @@ class MainPageViewController: UIViewController, CLLocationManagerDelegate, UISea
         print("Adding places onto the map now.")
         //Pinning places
         pullAllPlaces() { allplaces in
-            self.places = allPlaces
-            
+            self.places = allplaces
+            print(allplaces)
             for place in self.places {
+                print("Adding " + place.name! + " to the map.")
                 let pin = Pin(title: place.name!,
                               locationName: place.locationAddress!,
                               coordinate: place.lon_lat!)
                 self.mapView.addAnnotation(pin)
-        }
-//
-//            let artwork = Pin(title: "ShareTea",
-//                              locationName: "2440 Bancroft Way",
-//                              coordinate: CLLocationCoordinate2D(latitude: 37.868274, longitude: -122.260437))
-//            self.mapView.addAnnotation(artwork)
+            }
+            
+            
+            //
+            //            let artwork = Pin(title: "ShareTea",
+            //                              locationName: "2440 Bancroft Way",
+            //                              coordinate: CLLocationCoordinate2D(latitude: 37.868274, longitude: -122.260437))
+            //            self.mapView.addAnnotation(artwork)
         }
     }
     
@@ -140,8 +143,15 @@ class MainPageViewController: UIViewController, CLLocationManagerDelegate, UISea
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        print("got here")
+        print("gotosearch")
+        if segue.identifier == "main_to_search_segue" {
+            if let dest = segue.destination as? SearchViewController {
+                dest.places = filteredPlaces
+                
+            }
+        }
     }
+    
 
 }
 
