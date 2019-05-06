@@ -153,14 +153,14 @@ func pullAllPlaces(completion: @escaping ([Place]) -> Void) {
     getNextOpenIndex() //updates entryID
     let colRef = db.collection("0")
     colRef.getDocuments() { (querySnapshot, err) in
-        let allplaces: [Place] = []
+        var allplaces: [Place] = []
         if let err = err {
             print("Error getting documents: \(err)")
         } else {
             for document in querySnapshot!.documents {
                 let dataDescription = document.data()
                 let pulledPlace = Place(dataDescription)
-                allPlaces.append(pulledPlace)
+                allplaces.append(pulledPlace)
             }
         }
         completion(allplaces)

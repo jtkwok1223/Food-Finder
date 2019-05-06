@@ -86,6 +86,8 @@ class MainPageViewController: UIViewController, CLLocationManagerDelegate, UISea
         print("Adding places onto the map now.")
         //Pinning places
         pullAllPlaces() { allplaces in
+            self.places = allplaces
+            print(allplaces)
             for place in self.places {
                 print("Adding " + place.name! + " to the map.")
                 let pin = Pin(title: place.name!,
