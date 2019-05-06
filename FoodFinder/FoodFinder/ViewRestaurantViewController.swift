@@ -135,8 +135,6 @@ class ViewRestaurantViewController: UIViewController, UITableViewDelegate, UITab
             self.RestaurantHours.text = self.FormatTime()
             self.RestaurantImage.image = UIImage(named: "placeholderRestaurant")
             self.MenuView.reloadData()
-            
-            
         }
         
     }

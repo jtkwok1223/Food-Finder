@@ -18,6 +18,7 @@ class Place: NSObject {
     var MenuToppings: [String] = []
     var MenuToppingPrices: [Float] = []
     var name: String?
+    var nameLower: String?
     var locationAddress: String?
     var storeTimes: [String] = []
     var latitude: Double? = nil
@@ -50,6 +51,7 @@ class Place: NSObject {
         super.init()
         self.ID = pullData["ID"] as! Int
         self.name = pullData["name"] as? String
+        self.nameLower = self.name?.lowercased()
         self.locationAddress = pullData["locationAddress"] as? String
         addLatLonManually(pullData["Lat"] as! Double, pullData["Long"] as! Double)
         //self.lon_lat = CLLocationCoordinate2D(latitude: 0, longitude: 0)

@@ -10,7 +10,7 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class MainPageViewController: UIViewController, CLLocationManagerDelegate, UISearchBarDelegate {
+class MainPageViewController: UIViewController, CLLocationManagerDelegate, UISearchBarDelegate, MKMapViewDelegate {
 
     @IBOutlet var searchBar: UISearchBar!
     @IBOutlet var mapView: MKMapView!
@@ -19,6 +19,7 @@ class MainPageViewController: UIViewController, CLLocationManagerDelegate, UISea
     
     var places: [Place] = []
     var filteredPlaces : [Place] = []
+    var placePressed: Place = Place() //default
     
     // tracks location
     var locationManager = CLLocationManager()
@@ -27,7 +28,7 @@ class MainPageViewController: UIViewController, CLLocationManagerDelegate, UISea
         //pull from Firebase and get all Places that exist
         
         //TESTER FOR PINNING
-        
+        self.mapView.delegate = self
         let view = UIView(frame: CGRect(x: 0, y: 0, width: 320, height: 50))
         let gradient = CAGradientLayer()
         
@@ -77,9 +78,8 @@ class MainPageViewController: UIViewController, CLLocationManagerDelegate, UISea
     //    }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        //manager.stopUpdatingLocation()
-        //manager.delegate = nil
-//        self.mapView.delegate = self as? MKMapViewDelegate
+        manager.stopUpdatingLocation()
+        manager.delegate = nil
         let userLocation:CLLocation = locations[0] as CLLocation
         let region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude), latitudinalMeters: 15000, longitudinalMeters: 15000)
         self.mapView.setRegion(region, animated: true)
@@ -105,10 +105,22 @@ class MainPageViewController: UIViewController, CLLocationManagerDelegate, UISea
         }
     }
     
-    
+
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        if let annotationTitle = view.annotation?.title{
+            print("User tapped on annotation with title: \(annotationTitle!)")
+            getPressedPlace(annotationTitle!)
+        }
         print("segueing")
         self.performSegue(withIdentifier: "main_to_restaurant_segue", sender: self)
+    }
+    
+    func getPressedPlace(_ nameSearch: String) {
+        for place in self.places {
+            if (place.nameLower == nameSearch) {
+                placePressed = place
+            }
+        }
     }
     
     
@@ -143,12 +155,20 @@ class MainPageViewController: UIViewController, CLLocationManagerDelegate, UISea
         performSegue(withIdentifier: "addPlaceSeque", sender: self)
     }
     
+    
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         print("gotosearch")
         if segue.identifier == "main_to_search_segue" {
             if let dest = segue.destination as? SearchViewController {
                 dest.places = filteredPlaces
+            }
+        }
+        
+        if segue.identifier == "main_to_restaurant_segue" {
+            if let dest = segue.destination as? ViewRestaurantViewController {
+                dest.Restaurant = placePressed
             }
         }
     }
