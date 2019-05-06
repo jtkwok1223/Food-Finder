@@ -117,7 +117,7 @@ class MainPageViewController: UIViewController, CLLocationManagerDelegate, UISea
     
     func getPressedPlace(_ nameSearch: String) {
         for place in self.places {
-            if (place.nameLower == nameSearch) {
+            if (place.name == nameSearch) {
                 placePressed = place
             }
         }
