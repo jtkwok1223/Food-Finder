@@ -79,6 +79,7 @@ class MainPageViewController: UIViewController, CLLocationManagerDelegate, UISea
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         //manager.stopUpdatingLocation()
         //manager.delegate = nil
+//        self.mapView.delegate = self as? MKMapViewDelegate
         let userLocation:CLLocation = locations[0] as CLLocation
         let region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude), latitudinalMeters: 15000, longitudinalMeters: 15000)
         self.mapView.setRegion(region, animated: true)
@@ -96,7 +97,6 @@ class MainPageViewController: UIViewController, CLLocationManagerDelegate, UISea
                 self.mapView.addAnnotation(pin)
             }
             
-            
             //
             //            let artwork = Pin(title: "ShareTea",
             //                              locationName: "2440 Bancroft Way",
@@ -105,10 +105,12 @@ class MainPageViewController: UIViewController, CLLocationManagerDelegate, UISea
         }
     }
     
+    
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         print("segueing")
         self.performSegue(withIdentifier: "main_to_restaurant_segue", sender: self)
     }
+    
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print("Unable to access location")
@@ -131,7 +133,7 @@ class MainPageViewController: UIViewController, CLLocationManagerDelegate, UISea
     func filterSearch(_ userInput: String) {
         filteredPlaces = []
         for place in places {
-            if (place.MenuItems.contains(userInput)) {
+            if (place.MenuItemsLower.contains(userInput.lowercased())) {
                 filteredPlaces.append(place)
             }
         }
@@ -147,7 +149,6 @@ class MainPageViewController: UIViewController, CLLocationManagerDelegate, UISea
         if segue.identifier == "main_to_search_segue" {
             if let dest = segue.destination as? SearchViewController {
                 dest.places = filteredPlaces
-                
             }
         }
     }

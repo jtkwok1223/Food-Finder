@@ -23,6 +23,7 @@ class Place: NSObject {
     var latitude: Double? = nil
     var longitude: Double? = nil
     var lon_lat: CLLocationCoordinate2D? = nil
+    var MenuItemsLower: [String] = []
     
     var pullData: [String: Any] = [:]
     
@@ -55,6 +56,9 @@ class Place: NSObject {
         self.storeTimes = pullData["storeTimes"] as! [String]
         self.MenuItems = pullData["MenuItems"] as! [String]
         self.MenuAttrs = pullData["MenuAttrs"] as! [String]
+        for item in self.MenuItems {
+            self.MenuItemsLower.append(item.lowercased())
+        }
         self.MenuPrices = pullData["MenuPrices"] as! [Float]
         self.MenuToppings = pullData["MenuToppings"] as! [String]
         self.MenuToppingPrices = pullData["MenuToppingPrices"] as! [Float]
