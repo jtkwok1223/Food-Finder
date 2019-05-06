@@ -85,14 +85,16 @@ class MainPageViewController: UIViewController, CLLocationManagerDelegate, UISea
         
         print("Adding places onto the map now.")
         //Pinning places
+        pullAllPlaces() { allplaces in
+            for place in self.places {
+                print("Adding " + place.name! + " to the map.")
+                let pin = Pin(title: place.name!,
+                              locationName: place.locationAddress!,
+                              coordinate: place.lon_lat!)
+                self.mapView.addAnnotation(pin)
+            }
         
-        
-        for place in places {
-            print("Adding " + place.name! + " to the map.")
-            let pin = Pin(title: place.name!,
-                          locationName: place.locationAddress!,
-                          coordinate: place.lon_lat!)
-            self.mapView.addAnnotation(pin)
+    
 //
 //            let artwork = Pin(title: "ShareTea",
 //                              locationName: "2440 Bancroft Way",
