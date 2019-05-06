@@ -28,20 +28,33 @@ class SearchViewCell: UITableViewCell {
     }
 }
 
+
+
+
+
+
     class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource  {
         
+        var places : [Place] = []
+        var userLong : Double = 0
+        var userLat : Double = 0
+        
         func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            return 1 // TODO: make this number of restaurants returned
+            return places.count // TODO: make this number of restaurants returned
         }
         
         func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
             if let cell = tableView.dequeueReusableCell(withIdentifier: "restaurant_cell") as? SearchViewCell {
-                cell.RestaurantName.text = "NAME" //TODO: put name here (get index from indexPath.row)
-                cell.DistanceAway.text = "0 Miles" // TODO: put distance away here
+                cell.RestaurantName.text = places[indexPath.row].name //TODO: put name here (get index from indexPath.row)
+                cell.DistanceAway.text = String(distanceMiles(places[indexPath.row])) "0 Miles" // TODO: put distance away here
                 cell.searchViewImage.image = UIImage(named: "placeholderDrink")
                 return cell
             }
             return UITableViewCell()
+        }
+        
+        func distanceMiles(_ p: Place) -> Int {
+            
         }
         
         func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

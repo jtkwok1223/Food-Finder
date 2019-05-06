@@ -82,12 +82,16 @@ class MainPageViewController: UIViewController, CLLocationManagerDelegate, UISea
     //    }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        //manager.stopUpdatingLocation()
+        //manager.delegate = nil
         let userLocation:CLLocation = locations[0] as CLLocation
         let region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude), latitudinalMeters: 15000, longitudinalMeters: 15000)
         self.mapView.setRegion(region, animated: true)
         
+        print("Adding places onto the map now.")
         //Pinning places
         for place in places {
+            print("Adding " + place.name! + " to the map.")
             let pin = Pin(title: place.name!,
                           locationName: place.locationAddress!,
                           coordinate: place.lon_lat!)
@@ -116,6 +120,10 @@ class MainPageViewController: UIViewController, CLLocationManagerDelegate, UISea
             //store user input drink, and get filtered data
             userInput = searchBar.text!
             filterSearch(userInput)
+            self.performSegue(withIdentifier: "main_to_restaurant_segue", sender: self)
+            
+            print("Hello! filtered list of places has: ", filteredPlaces.count)
+            print("Firebase has: ", allPlaces.count, " places")
         }
     }
     
