@@ -143,8 +143,15 @@ class MainPageViewController: UIViewController, CLLocationManagerDelegate, UISea
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        print("got here")
+        print("gotosearch")
+        if segue.identifier == "main_to_search_segue" {
+            if let dest = segue.destination as? SearchViewController {
+                dest.places = filteredPlaces
+                
+            }
+        }
     }
+    
 
 }
 

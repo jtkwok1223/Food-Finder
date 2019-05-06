@@ -35,18 +35,19 @@ class SearchViewCell: UITableViewCell {
 
     class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource  {
         
-        var places : [Place] = []
+        var places : [Place]?
+        var clickedplace : Place?
         var userLong : Double = 0
         var userLat : Double = 0
         
         func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            return places.count // TODO: make this number of restaurants returned
+            return places!.count // TODO: make this number of restaurants returned
         }
         
         func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
             if let cell = tableView.dequeueReusableCell(withIdentifier: "restaurant_cell") as? SearchViewCell {
-                cell.RestaurantName.text = places[indexPath.row].name //TODO: put name here (get index from indexPath.row)
-                cell.DistanceAway.text = String(distanceMiles(places[indexPath.row])) + "Miles" // TODO: put distance away here
+                cell.RestaurantName.text = places![indexPath.row].name //TODO: put name here (get index from indexPath.row)
+                cell.DistanceAway.text = String(distanceMiles(places![indexPath.row])) + "Miles" // TODO: put distance away here
                 cell.searchViewImage.image = UIImage(named: "placeholderDrink")
                 return cell
             }
@@ -59,12 +60,13 @@ class SearchViewCell: UITableViewCell {
         
         func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
             // segue to RestaurantView
+            clickedplace = places![indexPath.row]
             performSegue(withIdentifier: "search_to_restaurant_segue", sender: nil)
         }
         
         override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-            if segue.destination is ViewRestaurantViewController {
-                //dest.Restaurant = Restaurant; TODO: Set proper restaurant for the view restaurant view
+            if let dest = segue.destination as? ViewRestaurantViewController {
+                dest.Restaurant = clickedplace
             }
         }
     
