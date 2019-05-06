@@ -25,13 +25,8 @@ class MainPageViewController: UIViewController, CLLocationManagerDelegate, UISea
     
     override func viewDidLoad() {
         //pull from Firebase and get all Places that exist
-        pullAllPlaces()
-        self.places = allPlaces
         
         //TESTER FOR PINNING
-        let place1 = Place("ShareTea", "2440 Bancroft Way", [] as! [String])
-        place1.addLatLonManually(37.868274, -122.260437)
-        places.append(place1)
         
         let view = UIView(frame: CGRect(x: 0, y: 0, width: 320, height: 50))
         let gradient = CAGradientLayer()
@@ -90,6 +85,8 @@ class MainPageViewController: UIViewController, CLLocationManagerDelegate, UISea
         
         print("Adding places onto the map now.")
         //Pinning places
+        
+        
         for place in places {
             print("Adding " + place.name! + " to the map.")
             let pin = Pin(title: place.name!,
@@ -120,7 +117,7 @@ class MainPageViewController: UIViewController, CLLocationManagerDelegate, UISea
             //store user input drink, and get filtered data
             userInput = searchBar.text!
             filterSearch(userInput)
-            self.performSegue(withIdentifier: "main_to_restaurant_segue", sender: self)
+            self.performSegue(withIdentifier: "main_to_search_segue", sender: self)
             
             print("Hello! filtered list of places has: ", filteredPlaces.count)
             print("Firebase has: ", allPlaces.count, " places")

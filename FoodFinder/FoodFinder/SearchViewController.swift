@@ -46,15 +46,15 @@ class SearchViewCell: UITableViewCell {
         func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
             if let cell = tableView.dequeueReusableCell(withIdentifier: "restaurant_cell") as? SearchViewCell {
                 cell.RestaurantName.text = places[indexPath.row].name //TODO: put name here (get index from indexPath.row)
-                cell.DistanceAway.text = String(distanceMiles(places[indexPath.row])) "0 Miles" // TODO: put distance away here
+                cell.DistanceAway.text = String(distanceMiles(places[indexPath.row])) + "Miles" // TODO: put distance away here
                 cell.searchViewImage.image = UIImage(named: "placeholderDrink")
                 return cell
             }
             return UITableViewCell()
         }
         
-        func distanceMiles(_ p: Place) -> Int {
-            
+        func distanceMiles(_ p: Place) -> Double {
+            return (pow(userLong - p.longitude!, 2) + pow(userLat - p.latitude!, 2)).squareRoot()
         }
         
         func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

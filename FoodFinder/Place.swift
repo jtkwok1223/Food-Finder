@@ -46,11 +46,13 @@ class Place: NSObject {
     //for pulling purposes: look at firebase for pulling anytime
     //init to make a easy pulling from FB --> USE pullData : [String: Any] variable!!! :)
     init(_ pullData: [String: Any]) {
+        super.init()
         self.ID = pullData["ID"] as! Int
         self.name = pullData["name"] as? String
         self.locationAddress = pullData["locationAddress"] as? String
-        self.latitude = 0.0//pullData["Long"] as! Double
-        self.longitude = 0.0//pullData["Lat"] as! Double
+        addLatLonManually(pullData["Lat"] as! Double, pullData["Long"] as! Double)
+        print(pullData["Location"])
+        self.lon_lat = CLLocationCoordinate2D(latitude: 0, longitude: 0)
         self.storeTimes = pullData["storeTimes"] as! [String]
         self.MenuItems = pullData["MenuItems"] as! [String]
         self.MenuAttrs = pullData["MenuAttrs"] as! [String]
