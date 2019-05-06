@@ -128,6 +128,7 @@ func addNewPlace(_ place: Place){
         "storeTimes" : place.storeTimes,
         "MenuItems" : [],
         "MenuPrices" : [],
+        "MenuAttrs" : [],
         "MenuToppings" : [],
         "MenuToppingPrices" : []
         //"ID" : getNextOpenIndex()
@@ -146,21 +147,21 @@ func addNewPlace(_ place: Place){
 
 
 //for the map and places table
-func pullAllPlaces() {
+func pullAllPlaces(completion: @escaping ([Place]) -> Void) {
     getNextOpenIndex() //updates entryID
-    let maxi = entryID - 1
-    
-    for i in 0...0{
-        let docRef = db.collection(String(i)).document(":3c")
-        docRef.getDocument { (document, error) in
-            if let document = document, document.exists {
-                if let dataDescription = document.data() {
-                    let pulledPlace = Place(dataDescription)
-                    allPlaces.append(pulledPlace)
-                }
-            } else {
-                print("Document does not exist")
+    let colRef = db.collection("0")
+    colRef.getDocuments() { (querySnapshot, err) in
+        let allplaces: [Place] = []
+        if let err = err {
+            print("Error getting documents: \(err)")
+        } else {
+            for document in querySnapshot!.documents {
+                let dataDescription = document.data()
+                let pulledPlace = Place(dataDescription)
+                allPlaces.append(pulledPlace)
             }
         }
+        completion(allplaces)
     }
+    
 }

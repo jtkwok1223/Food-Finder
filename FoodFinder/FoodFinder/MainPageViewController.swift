@@ -25,13 +25,8 @@ class MainPageViewController: UIViewController, CLLocationManagerDelegate, UISea
     
     override func viewDidLoad() {
         //pull from Firebase and get all Places that exist
-        pullAllPlaces()
-        self.places = allPlaces
         
         //TESTER FOR PINNING
-        let place1 = Place("ShareTea", "2440 Bancroft Way", [] as! [String])
-        place1.addLatLonManually(37.868274, -122.260437)
-        places.append(place1)
         
         let view = UIView(frame: CGRect(x: 0, y: 0, width: 320, height: 50))
         let gradient = CAGradientLayer()
@@ -87,11 +82,15 @@ class MainPageViewController: UIViewController, CLLocationManagerDelegate, UISea
         self.mapView.setRegion(region, animated: true)
         
         //Pinning places
-        for place in places {
-            let pin = Pin(title: place.name!,
-                          locationName: place.locationAddress!,
-                          coordinate: place.lon_lat!)
-            self.mapView.addAnnotation(pin)
+        pullAllPlaces() { allplaces in
+            self.places = allPlaces
+            
+            for place in self.places {
+                let pin = Pin(title: place.name!,
+                              locationName: place.locationAddress!,
+                              coordinate: place.lon_lat!)
+                self.mapView.addAnnotation(pin)
+        }
 //
 //            let artwork = Pin(title: "ShareTea",
 //                              locationName: "2440 Bancroft Way",
