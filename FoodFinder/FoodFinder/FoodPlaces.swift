@@ -77,7 +77,7 @@ func storeID(_ place: Place) {
 ////////////////////// ABSTRACT FUNCTIONS ABOVE, USE BELOW ONLY ////////////////////////////////////////////////////////////////////////////////
 
 //use this to update place with the food
-func updateFoodList(_ place: Place, _ food: Food){
+func updateFoodList(_ place: Place){
     findStoreID(place)
     db.collection("0").document(place.name!).setData([
         "MenuAttrs" : place.MenuAttrs,
@@ -104,7 +104,6 @@ func repullPlace(_ place: Place, completion: @escaping (Place) -> Void){
     docRef.getDocument { (document, error) in
         if let document = document, document.exists {
             if let dataDescription = document.data() {
-                print("getting it?")
                 newplace = Place(dataDescription)
             } else {
                 print("error here")
@@ -123,10 +122,10 @@ func addNewPlace(_ place: Place){
     getNextOpenIndex() //updates entryID
     db.collection("0").document(place.name!).setData([
         "ID" : entryID,
-        "Name" : place.name!,
-        "LocationAddress" : place.locationAddress!,
+        "name" : place.name!,
+        "locationAddress" : place.locationAddress!,
         "Location" : "", //to be verified ourselves
-        "StoreTimes" : place.storeTimes,
+        "storeTimes" : place.storeTimes,
         "MenuItems" : [],
         "MenuPrices" : [],
         "MenuToppings" : [],

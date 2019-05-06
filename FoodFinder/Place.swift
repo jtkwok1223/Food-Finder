@@ -47,8 +47,8 @@ class Place: NSObject {
     //init to make a easy pulling from FB --> USE pullData : [String: Any] variable!!! :)
     init(_ pullData: [String: Any]) {
         self.ID = pullData["ID"] as! Int
-        self.name = pullData["Name"] as? String
-        self.locationAddress = pullData["LocationAddress"] as? String
+        self.name = pullData["name"] as? String
+        self.locationAddress = pullData["locationAddress"] as? String
         self.latitude = 0.0//pullData["Long"] as! Double
         self.longitude = 0.0//pullData["Lat"] as! Double
         self.storeTimes = pullData["storeTimes"] as! [String]
@@ -72,23 +72,7 @@ class Place: NSObject {
     func addFood(_ food: Food) {
         self.MenuItems.append(food.name)
         self.MenuPrices.append(food.price)
-        var listIterate: [Bool] = []
-        listIterate.append(food.attr.milkTea)
-        listIterate.append(food.attr.fruitTea)
-        listIterate.append(food.attr.dairyFree)
-        listIterate.append(food.attr.veganOption)
-        listIterate.append(food.attr.hot)
-        listIterate.append(food.attr.cold)
-        
-        var booleanStr = ""
-        for i in listIterate {
-            if (i) {
-                booleanStr += "T"
-            } else {
-                booleanStr += "F"
-            }
-        }
-        self.MenuAttrs.append(booleanStr)
+        self.MenuAttrs.append(food.attr)
     }
     
     //add food in restaurant

@@ -9,8 +9,11 @@
 import UIKit
 
 class AddMenuItemViewController: UIViewController {
+
     
-    var place : Place!
+    var placename : String?
+    
+    var place : Place?
     
     
     
@@ -84,11 +87,51 @@ class AddMenuItemViewController: UIViewController {
     var iscold = false
     
     
-    
+    func makeattr() -> String{
+        var final = ""
+        if ismilk {
+            final += "T"
+        } else {
+            final += "F"
+        }
+        
+        if isfruit {
+            final += "T"
+        } else {
+            final += "F"
+        }
+        
+        if isdairyfree {
+            final += "T"
+        } else {
+            final += "F"
+        }
+        
+        if isvegan {
+            final += "T"
+        } else {
+            final += "F"
+        }
+        
+        if ishot {
+            final += "T"
+        } else {
+            final += "F"
+        }
+        
+        if iscold {
+            final += "T"
+        } else {
+            final += "F"
+        }
+        return final
+    }
     
     @IBAction func SubmitButton(_ sender: Any) {
-        let addFood = Food(nameText.text ?? "", (priceText.text! as NSString).floatValue, Attributes(ismilk, isfruit, isdairyfree, isvegan, isvegan, iscold))!
-        updateFoodList(place, addFood)
+        let addFood = Food(nameText.text ?? "", (priceText.text! as NSString).floatValue, makeattr())!
+
+        place!.addFood(addFood)
+        updateFoodList(place!)
         
         let alertView = UIAlertController(title: "Item Added.", message: "Menu item has been added.", preferredStyle: .actionSheet)
         

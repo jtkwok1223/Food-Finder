@@ -101,8 +101,8 @@ class MainPageViewController: UIViewController, CLLocationManagerDelegate, UISea
     }
     
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-        
-        self.performSegue(withIdentifier: "ViewRestaurantViewController", sender: nil)
+        print("segueing")
+        self.performSegue(withIdentifier: "main_to_restaurant_segue", sender: self)
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
@@ -130,6 +130,11 @@ class MainPageViewController: UIViewController, CLLocationManagerDelegate, UISea
     
     @IBAction func addButtonPressed(_ sender: Any) {
         performSegue(withIdentifier: "addPlaceSeque", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        print("got here")
     }
 
 }

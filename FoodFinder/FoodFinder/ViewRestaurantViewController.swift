@@ -47,7 +47,8 @@ class AddItemViewCell: UITableViewCell {
 class ViewRestaurantViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     
-    var Restaurant: Place = Place()
+    var Restaurant: Place?
+    var restaurantname: String = ""
     
     @IBOutlet weak var RestaurantName: UILabel!
     
@@ -58,24 +59,24 @@ class ViewRestaurantViewController: UIViewController, UITableViewDelegate, UITab
     @IBOutlet weak var MenuView: UITableView!
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Restaurant.MenuToppings.count + Restaurant.MenuItems.count + 1
+        return Restaurant!.MenuToppings.count + Restaurant!.MenuItems.count + 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let menucount = Restaurant.MenuItems.count
+        let menucount = Restaurant!.MenuItems.count
         if indexPath.row < menucount {
             if let cell = tableView.dequeueReusableCell(withIdentifier: "menu_cell") as? MenuItemViewCell {
-                cell.MenuItemName.text = Restaurant.MenuItems[indexPath.row]
-                cell.MenuItemPrice.text = FormatPrice(price: Restaurant.MenuPrices[indexPath.row])
+                cell.MenuItemName.text = Restaurant!.MenuItems[indexPath.row]
+                cell.MenuItemPrice.text = FormatPrice(price: Restaurant!.MenuPrices[indexPath.row])
                 cell.itemImage.image = UIImage(named: "placeholderDrink")
-                cell.MenuItemProperties.text = FormatAttrs(attrs: Restaurant.MenuAttrs[indexPath.row])
+                cell.MenuItemProperties.text = FormatAttrs(attrs: Restaurant!.MenuAttrs[indexPath.row])
                 return cell
             }
         }
-        else if indexPath.row  < menucount + Restaurant.MenuToppings.count {
+        else if indexPath.row  < menucount + Restaurant!.MenuToppings.count {
             if let cell = tableView.dequeueReusableCell(withIdentifier: "menu_cell") as? MenuItemViewCell {
-                cell.MenuItemName.text = Restaurant.MenuToppings[indexPath.row - menucount]
-                cell.MenuItemPrice.text = FormatPrice(price: Restaurant.MenuToppingPrices[indexPath.row - menucount])
+                cell.MenuItemName.text = Restaurant!.MenuToppings[indexPath.row - menucount]
+                cell.MenuItemPrice.text = FormatPrice(price: Restaurant!.MenuToppingPrices[indexPath.row - menucount])
                 cell.itemImage.image = UIImage(named: "placeholderTopping")
                 cell.MenuItemProperties.text = " "
                 return cell
@@ -91,8 +92,8 @@ class ViewRestaurantViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.row == Restaurant.MenuToppings.count + Restaurant.MenuItems.count {
-            performSegue(withIdentifier: "restaurant_to_add_segue", sender: nil)
+        if indexPath.row == Restaurant!.MenuToppings.count + Restaurant!.MenuItems.count {
+            performSegue(withIdentifier: "restaurant_to_add_segue", sender: self)
         }
         
     }
@@ -104,37 +105,31 @@ class ViewRestaurantViewController: UIViewController, UITableViewDelegate, UITab
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if Restaurant == nil {
+            Restaurant = Place()
+            Restaurant!.name = "ShareTea"
+        }
         MenuView.delegate = self
         MenuView.dataSource = self
+        repullFromFB()
         
         
         // Do any additional setup after loading the view.
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        if Restaurant == nil {
+            print("WHAT THE FUCK")
+            Restaurant = Place()
+            Restaurant!.name = "ShareTea"
+        }
         repullFromFB()
     }
     
-    func makedummyplace() {
-        let storeTimes: [String] = ["9:00AM-11:00PM,9:00 AM-11:00PM","9:00 AM-11:00PM","9:00AM-3:00 PM,5:00 PM-11:00 PM","11:00 AM-10:00 PM","11:00 AM-10:00 PM","11:00 AM-10:00 PM","11:00 AM-10:00 PM"]
-        Restaurant = Place("Boba Cafe", "123 Street", storeTimes)
-        Restaurant.MenuItems = ["Milk Tea", "Thai Milk Tea", "Ice Cream Milk Tea", "Green Apple Tea"]
-        Restaurant.MenuAttrs = ["TFFFTT", "TTFFTT", "TTTTTT", "FFFFFF"]
-        Restaurant.MenuPrices = [3.3, 3.35, 4.00, 4]
-        Restaurant.MenuToppings = ["Pearl", "Ice Cream", "Egg Pudding"]
-        Restaurant.MenuToppingPrices = [0.5, 0.5, 0.5]
-    }
-    
     func repullFromFB() {
-        if Restaurant.name == Place().name {
-            //print("no restaurant")
-            Restaurant.name = "ShareTea"
-            
-                //var pulledPlace = Place(
-            //makedummyplace()
-        }
-        RestaurantName.text  = Restaurant.name
-        repullPlace(Restaurant) { newres in
+        RestaurantName.text  = Restaurant!.name
+        restaurantname = Restaurant!.name!
+        repullPlace(Restaurant!) { newres in
             self.Restaurant = newres
             
             self.RestaurantHours.text = self.FormatTime()
@@ -143,7 +138,6 @@ class ViewRestaurantViewController: UIViewController, UITableViewDelegate, UITab
             
             
         }
-        //Restaurant = getglobalplace()
         
     }
     
@@ -171,11 +165,11 @@ class ViewRestaurantViewController: UIViewController, UITableViewDelegate, UITab
     
     func FormatTime() -> String {
         var dict: [String: [Int]] = [:]
-        if Restaurant.storeTimes.count == 0 {
+        if Restaurant!.storeTimes.count == 0 {
             return ""
         }
         for i in 0...6 {
-            for time in Restaurant.storeTimes[i].components(separatedBy: ",") {
+            for time in Restaurant!.storeTimes[i].components(separatedBy: ",") {
                 if dict[time] == nil {
                     dict[time] = []
                 }
@@ -236,8 +230,11 @@ class ViewRestaurantViewController: UIViewController, UITableViewDelegate, UITab
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let dest = segue.destination as? AddMenuItemViewController {
-            dest.place = Restaurant;
+        if segue.identifier == "restaurant_to_add_segue" {
+            if let dest = segue.destination as? AddMenuItemViewController {
+                dest.place = Restaurant
+                
+            }
         }
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
